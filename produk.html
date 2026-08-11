@@ -261,6 +261,82 @@
   </div>
 </div>
 
+<!-- ORDER INFO MODAL (opens above the product modal, full-size for comfortable reading) -->
+<div class="modal-backdrop" id="orderBackdrop">
+  <div class="order-modal">
+    <button class="modal-close" id="orderModalClose" aria-label="Tutup">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#10140F" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+    <div class="order-modal-body">
+      <div class="eyebrow">PANDUAN PEMESANAN</div>
+      <h2>Cara Order &amp; Alur Pesanan</h2>
+
+      <h4>Cara Order</h4>
+      <ol>
+        <li>Tentukan produk yang ingin di-order (kartu / desain).</li>
+        <li><strong>Etalase koleksi</strong> — bisa pilih desain yang tersedia, atau custom chat admin.</li>
+        <li><strong>Custom desain lainnya</strong> — chat admin untuk request gambar/data (Kartu Sultan, Pokémon, Anime, K-Pop, dll).</li>
+        <li><strong>Desain sendiri</strong> — ukuran 86.6 × 55 mm, 500 DPI. Kirim file PDF / PNG / JPG / TIFF dan konfirmasi ke admin.</li>
+      </ol>
+      <p class="note">Tinggalkan catatan saat checkout agar pesanan dapat diproses dengan benar.</p>
+
+      <h4>Alur Pesanan</h4>
+      <div class="flow">
+        <span>Preview Desain</span><span class="arrow">→</span>
+        <span>ACC / Revisi</span><span class="arrow">→</span>
+        <span>Fix ACC</span><span class="arrow">→</span>
+        <span>Cetak</span><span class="arrow">→</span>
+        <span>Kirim</span>
+      </div>
+
+      <div class="order-grid">
+        <div>
+          <h4>Waktu Proses</h4>
+          <ul>
+            <li>Produksi 1 hari kerja setelah desain Fix ACC.</li>
+            <li>Batas maksimal ACC pukul 11.00 WIB (ACC di atas jam tersebut diproses ke hari kerja berikutnya).</li>
+            <li>Proses mengikuti antrian produksi.</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Pilihan Jenis Kartu</h4>
+          <ul class="pill-list">
+            <li>e-money Mandiri</li><li>Flazz Gen 2 BCA</li><li>BRIZZI BRI</li>
+            <li>TapCash BNI</li><li>PVC</li><li>RFID (Proximity / Mifare)</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Pilihan Finishing</h4>
+          <ul>
+            <li><strong>Doff</strong> — matte</li>
+            <li><strong>Glossy</strong> — mengkilap</li>
+            <li><strong>3D Emboss</strong> — efek timbul untuk nama, logo, atau area tertentu</li>
+            <li><strong>3D Otomatis Basecolor</strong> — efek timbul/tekstur mengikuti warna desain</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Hasil Cetak</h4>
+          <p>Full UV printing, warna tajam, presisi, tidak pakai stiker. Bahan dan tinta UV premium, cocok untuk penggunaan harian sekaligus tampil gaya.</p>
+        </div>
+      </div>
+
+      <h4>Perlu Diperhatikan</h4>
+      <ul>
+        <li>Saldo awal Rp 0,-</li>
+        <li>Untuk Flazz Gen 2 ada chip di depan dan strip magnetik di belakang — desain harus disesuaikan agar tidak mengenai chip dan strip.</li>
+        <li>Semua kartu bisa isi/cek saldo lewat HP dengan NFC.</li>
+        <li>Jika order tanpa chat atau catatan selama sekitar 6 jam setelah checkout, pencetakan bisa dilakukan random sesuai varian yang dipilih.</li>
+        <li>Untuk custom nama tanpa catatan, nama yang dicantumkan akan diambil dari username / label pembeli.</li>
+        <li>Barang PO, dibuat sesuai permintaan — mohon pahami alur agar tidak komplain karena tidak ready stock.</li>
+      </ul>
+
+      <div class="order-callout">
+        Tanpa chat admin &amp; catatan pembeli dalam <strong>1×6 jam</strong> setelah checkout, pesanan akan dicetak random sesuai varian/template yang dipilih.
+      </div>
+    </div>
+  </div>
+</div>
+
 <script>
 /* Cara Order & Alur Pesanan is now a dedicated static modal (see #orderBackdrop in HTML) —
    identical content for every product, so it doesn't need to be rebuilt per product. */
@@ -473,81 +549,6 @@ document.addEventListener('keydown', (e)=>{
   if(e.key==='Escape') document.getElementById('orderBackdrop').classList.remove('open');
 });
 </script>
-<!-- ORDER INFO MODAL (opens above the product modal, full-size for comfortable reading) -->
-<div class="modal-backdrop" id="orderBackdrop">
-  <div class="order-modal">
-    <button class="modal-close" id="orderModalClose" aria-label="Tutup">
-      <svg viewBox="0 0 24 24" fill="none" stroke="#10140F" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
-    </button>
-    <div class="order-modal-body">
-      <div class="eyebrow">PANDUAN PEMESANAN</div>
-      <h2>Cara Order &amp; Alur Pesanan</h2>
-
-      <h4>Cara Order</h4>
-      <ol>
-        <li>Tentukan produk yang ingin di-order (kartu / desain).</li>
-        <li><strong>Etalase koleksi</strong> — bisa pilih desain yang tersedia, atau custom chat admin.</li>
-        <li><strong>Custom desain lainnya</strong> — chat admin untuk request gambar/data (Kartu Sultan, Pokémon, Anime, K-Pop, dll).</li>
-        <li><strong>Desain sendiri</strong> — ukuran 86.6 × 55 mm, 500 DPI. Kirim file PDF / PNG / JPG / TIFF dan konfirmasi ke admin.</li>
-      </ol>
-      <p class="note">Tinggalkan catatan saat checkout agar pesanan dapat diproses dengan benar.</p>
-
-      <h4>Alur Pesanan</h4>
-      <div class="flow">
-        <span>Preview Desain</span><span class="arrow">→</span>
-        <span>ACC / Revisi</span><span class="arrow">→</span>
-        <span>Fix ACC</span><span class="arrow">→</span>
-        <span>Cetak</span><span class="arrow">→</span>
-        <span>Kirim</span>
-      </div>
-
-      <div class="order-grid">
-        <div>
-          <h4>Waktu Proses</h4>
-          <ul>
-            <li>Produksi 1 hari kerja setelah desain Fix ACC.</li>
-            <li>Batas maksimal ACC pukul 11.00 WIB (ACC di atas jam tersebut diproses ke hari kerja berikutnya).</li>
-            <li>Proses mengikuti antrian produksi.</li>
-          </ul>
-        </div>
-        <div>
-          <h4>Pilihan Jenis Kartu</h4>
-          <ul class="pill-list">
-            <li>e-money Mandiri</li><li>Flazz Gen 2 BCA</li><li>BRIZZI BRI</li>
-            <li>TapCash BNI</li><li>PVC</li><li>RFID (Proximity / Mifare)</li>
-          </ul>
-        </div>
-        <div>
-          <h4>Pilihan Finishing</h4>
-          <ul>
-            <li><strong>Doff</strong> — matte</li>
-            <li><strong>Glossy</strong> — mengkilap</li>
-            <li><strong>3D Emboss</strong> — efek timbul untuk nama, logo, atau area tertentu</li>
-            <li><strong>3D Otomatis Basecolor</strong> — efek timbul/tekstur mengikuti warna desain</li>
-          </ul>
-        </div>
-        <div>
-          <h4>Hasil Cetak</h4>
-          <p>Full UV printing, warna tajam, presisi, tidak pakai stiker. Bahan dan tinta UV premium, cocok untuk penggunaan harian sekaligus tampil gaya.</p>
-        </div>
-      </div>
-
-      <h4>Perlu Diperhatikan</h4>
-      <ul>
-        <li>Saldo awal Rp 0,-</li>
-        <li>Untuk Flazz Gen 2 ada chip di depan dan strip magnetik di belakang — desain harus disesuaikan agar tidak mengenai chip dan strip.</li>
-        <li>Semua kartu bisa isi/cek saldo lewat HP dengan NFC.</li>
-        <li>Jika order tanpa chat atau catatan selama sekitar 6 jam setelah checkout, pencetakan bisa dilakukan random sesuai varian yang dipilih.</li>
-        <li>Untuk custom nama tanpa catatan, nama yang dicantumkan akan diambil dari username / label pembeli.</li>
-        <li>Barang PO, dibuat sesuai permintaan — mohon pahami alur agar tidak komplain karena tidak ready stock.</li>
-      </ul>
-
-      <div class="order-callout">
-        Tanpa chat admin &amp; catatan pembeli dalam <strong>1×6 jam</strong> setelah checkout, pesanan akan dicetak random sesuai varian/template yang dipilih.
-      </div>
-    </div>
-  </div>
-</div>
 
 </body>
 </html>
