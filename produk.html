@@ -59,9 +59,9 @@
   .page-head p{color:var(--f-muted);font-size:16.5px;max-width:560px;}
 
   /* PRODUCT GRID */
-  .prod-grid{display:grid;grid-template-columns:1fr;gap:22px;padding-bottom:90px;}
-  @media(min-width:640px){.prod-grid{grid-template-columns:repeat(2,1fr);}}
-  @media(min-width:980px){.prod-grid{grid-template-columns:repeat(3,1fr);}}
+  .prod-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;padding-bottom:90px;}
+  @media(min-width:640px){.prod-grid{grid-template-columns:repeat(3,1fr);gap:20px;}}
+  @media(min-width:980px){.prod-grid{grid-template-columns:repeat(4,1fr);}}
 
   .prod-card{
     border:1px solid var(--f-grid);border-radius:var(--radius);overflow:hidden;
@@ -130,16 +130,16 @@
   }
   .modal-backdrop.open{display:flex;}
   .modal{
-    background:#fff;border-radius:20px;width:100%;max-width:1160px;height:92vh;max-height:860px;overflow:hidden;
-    display:grid;grid-template-columns:1fr;
+    background:#fff;border-radius:20px;width:100%;max-width:1160px;height:min(92vh,860px);overflow:hidden;
+    display:grid;grid-template-columns:1fr;grid-template-rows:auto 1fr;
   }
-  @media(min-width:820px){.modal{grid-template-columns:1.15fr 1fr;}}
-  .modal-visual{background:var(--f-mint);position:relative;display:flex;flex-direction:column;min-height:0;height:100%;}
-  .slide-stage{flex:1;position:relative;overflow:hidden;min-height:0;}
-  .slide{position:absolute;inset:0;opacity:0;transition:opacity .25s ease;display:flex;align-items:center;justify-content:center;padding:32px;}
+  @media(min-width:820px){.modal{grid-template-columns:1.15fr 1fr;grid-template-rows:1fr;}}
+  .modal-visual{background:var(--f-mint);position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:0;height:100%;overflow:hidden;gap:10px;padding:14px 0 0;}
+  .slide-stage{width:min(100%,66vh);max-width:100%;aspect-ratio:1/1;position:relative;overflow:hidden;flex-shrink:1;}
+  .slide{position:absolute;inset:0;opacity:0;transition:opacity .25s ease;display:flex;align-items:center;justify-content:center;padding:8px;background:var(--f-mint);}
   .slide.active{opacity:1;}
-  .slide img{max-width:100%;max-height:100%;object-fit:contain;border-radius:12px;box-shadow:0 24px 48px -20px rgba(16,20,15,.35);}
-  .slide-card-wrap{width:min(72%,420px);aspect-ratio:1.588/1;border-radius:16px;box-shadow:0 24px 48px -20px rgba(16,20,15,.4);}
+  .slide img{width:100%;height:100%;object-fit:contain;border-radius:0;box-shadow:none;}
+  .slide-card-wrap{width:88%;aspect-ratio:1.588/1;border-radius:16px;box-shadow:0 24px 48px -20px rgba(16,20,15,.4);}
   .slide-nav{position:absolute;top:50%;transform:translateY(-50%);width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.9);border:1px solid var(--f-grid);display:flex;align-items:center;justify-content:center;z-index:5;}
   .slide-nav svg{width:16px;height:16px;}
   .slide-prev{left:14px;}
@@ -226,7 +226,6 @@
       <div class="slide-dots" id="slideDots"></div>
     </div>
     <div class="modal-info">
-      <div class="prod-tag mono" id="modalTag"></div>
       <h3 id="modalTitle"></h3>
       <p class="desc-short" id="modalDesc"></p>
       <div class="modal-cta">
@@ -393,7 +392,7 @@ const products = [
   },
   {
     tag: "KOLEKSI · CUSTOM DESAIN",
-    title: "Kartu Emoney Sponge Bob",
+    title: "Kartu Emoney Spons Laut Ceria",
     desc: "Maskot spons laut orisinal dengan gelembung biru — playful buat harian, custom nama gratis.",
     slides: [
       {type:'card', variant: cardFront({grad:'linear-gradient(150deg,#0EA5A8,#3FC7C0 55%,#F4D35E)', brand:'FROGRESS', mark:'F', deco:'<div class="blob" style="right:8px;bottom:-24px;width:110px;height:96px;background:rgba(255,255,255,.24)"></div><div class="spark" style="left:20%;top:24%;width:9px;height:9px"></div><div class="spark" style="left:65%;top:18%;width:6px;height:6px"></div><div class="spark" style="left:75%;top:55%;width:7px;height:7px"></div>'})},
@@ -435,7 +434,6 @@ let current = 0, slideIdx = 0;
 function openModal(i){
   current = i; slideIdx = 0;
   const p = products[i];
-  document.getElementById('modalTag').textContent = p.tag;
   document.getElementById('modalTitle').textContent = p.title;
   document.getElementById('modalDesc').textContent = p.desc;
   document.getElementById('modalWA').href = `https://wa.me/6280000000000?text=${encodeURIComponent('Halo Frogress Shop, saya mau pesan: ' + p.title)}`;
