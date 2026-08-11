@@ -477,6 +477,15 @@
     });
     stage.addEventListener('mouseleave', ()=>{ card.style.transform = 'rotate(-6deg)'; });
   }
+
+
+  const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+const navLinks = document.getElementById('navLinks');
+
+mobileMenuBtn.addEventListener('click', () => {
+  navLinks.classList.toggle('active');
+});
+  
 </script>
 
 </body>
