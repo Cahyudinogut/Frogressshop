@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Frogress Shop — Emoney Custom Digital Print UV</title>
+<meta name="description" content="Frogress Shop menjual emoney custom UV print — hasil cetak tajam, warna presisi, dan awet untuk pemakaian harian.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --f-green:#0E8F52;
+    --f-green-dark:#0A6B3E;
+    --f-green-light:#3FB37B;
+    --f-ink:#10140F;
+    --f-paper:#FFFFFF;
+    --f-grid:#E4EAE5;
+    --f-mint:#EEF8F1;
+    --f-muted:#5B6660;
+    --radius:14px;
+    --maxw:1180px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Inter',sans-serif;
+    color:var(--f-ink);
+    background:var(--f-paper);
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  .mono{font-family:'JetBrains Mono',monospace;}
+  h1,h2,h3,.display{font-family:'Space Grotesk',sans-serif;letter-spacing:-0.02em;}
+  a{color:inherit;text-decoration:none;}
+  img,svg{display:block;max-width:100%;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px;}
+
+  /* grid background pattern — kotak-kotak putih */
+  .grid-bg{
+    background-image:
+      linear-gradient(var(--f-grid) 1px, transparent 1px),
+      linear-gradient(90deg, var(--f-grid) 1px, transparent 1px);
+    background-size:40px 40px;
+    background-position:center top;
+  }
+
+  /* NAV */
+  header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(255,255,255,.85);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--f-grid);
+  }
+  nav{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:16px 24px;max-width:var(--maxw);margin:0 auto;
+  }
+  .logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:18px;}
+  .logo-mark{
+    width:34px;height:34px;border-radius:9px;
+    background:var(--f-green);
+    display:flex;align-items:center;justify-content:center;
+    color:#fff;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:18px;
+    box-shadow:0 2px 0 var(--f-green-dark);
+  }
+  .nav-links{display:flex;gap:32px;font-size:14.5px;font-weight:500;color:var(--f-muted);}
+  .nav-links a:hover{color:var(--f-ink);}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:11px 20px;border-radius:999px;
+    font-weight:600;font-size:14.5px;
+    background:var(--f-ink);color:#fff;
+    transition:transform .15s ease, box-shadow .15s ease;
+    border:none;cursor:pointer;
+  }
+  .btn:hover{transform:translateY(-2px);}
+  .btn-primary{background:var(--f-green);}
+  .btn-primary:hover{box-shadow:0 6px 18px rgba(14,143,82,.35);}
+  .nav-cta{display:none;}
+  @media(min-width:860px){.nav-cta{display:inline-flex;}}
+  @media(max-width:859px){.nav-links{display:none;}}
+
+  /* HERO */
+  .hero{
+    padding:88px 0 110px;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero-inner{
+    display:grid;grid-template-columns:1fr;gap:56px;align-items:center;
+    max-width:var(--maxw);margin:0 auto;padding:0 24px;
+  }
+  @media(min-width:960px){.hero-inner{grid-template-columns:1.05fr .95fr;}}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:8px;
+    font-family:'JetBrains Mono',monospace;font-size:12.5px;
+    color:var(--f-green-dark);background:var(--f-mint);
+    padding:6px 12px;border-radius:999px;margin-bottom:22px;
+    border:1px solid #D3EEDC;
+  }
+  .eyebrow::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--f-green);}
+  h1.display{
+    font-size:clamp(36px,5.2vw,58px);
+    font-weight:700;line-height:1.04;margin-bottom:22px;
+  }
+  h1.display em{font-style:normal;color:var(--f-green);}
+  .hero p.sub{
+    font-size:17.5px;color:var(--f-muted);max-width:480px;margin-bottom:32px;
+  }
+  .hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:36px;}
+  .btn-outline{
+    background:transparent;color:var(--f-ink);border:1.5px solid var(--f-grid);
+  }
+  .btn-outline:hover{border-color:var(--f-ink);}
+  .hero-stats{display:flex;gap:32px;flex-wrap:wrap;}
+  .hero-stats div{font-family:'JetBrains Mono',monospace;}
+  .hero-stats .num{font-size:20px;font-weight:600;color:var(--f-ink);}
+  .hero-stats .lbl{font-size:12.5px;color:var(--f-muted);}
+
+  /* CARD MOCKUP — signature element */
+  .card-stage{
+    position:relative;
+    display:flex;align-items:center;justify-content:center;
+    min-height:340px;
+  }
+  .emoney-card{
+    width:340px;height:214px;
+    border-radius:18px;
+    background:linear-gradient(135deg,#0B6B3F 0%,#0E8F52 45%,#26A76A 100%);
+    position:relative;
+    box-shadow:0 30px 60px -20px rgba(10,60,35,.45), 0 10px 20px -10px rgba(10,60,35,.3);
+    color:#fff;
+    padding:22px 24px;
+    transform:rotate(-6deg);
+    transition:transform .35s ease;
+    overflow:hidden;
+  }
+  .card-stage:hover .emoney-card{transform:rotate(-2deg) scale(1.02);}
+  .emoney-card::after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(115deg, rgba(255,255,255,.28) 0%, rgba(255,255,255,0) 30%, rgba(255,255,255,0) 70%, rgba(255,255,255,.12) 100%);
+    pointer-events:none;
+  }
+  .card-top{display:flex;justify-content:space-between;align-items:flex-start;position:relative;z-index:1;}
+  .card-chip{width:38px;height:29px;border-radius:6px;background:linear-gradient(135deg,#E9D98A,#C9A94B);}
+  .card-brand{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:14px;letter-spacing:.02em;}
+  .card-mark{
+    width:26px;height:26px;border-radius:7px;background:rgba(255,255,255,.18);
+    display:flex;align-items:center;justify-content:center;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:14px;
+  }
+  .card-number{
+    font-family:'JetBrains Mono',monospace;font-size:16px;letter-spacing:.08em;
+    margin-top:34px;position:relative;z-index:1;opacity:.95;
+  }
+  .card-bottom{display:flex;justify-content:space-between;align-items:flex-end;margin-top:16px;position:relative;z-index:1;}
+  .card-name{font-size:11px;letter-spacing:.08em;opacity:.85;text-transform:uppercase;}
+  .card-uv{
+    font-family:'JetBrains Mono',monospace;font-size:10px;
+    background:rgba(255,255,255,.16);padding:4px 8px;border-radius:6px;letter-spacing:.04em;
+  }
+  .card-back-deco{
+    position:absolute;width:340px;height:214px;border-radius:18px;
+    background:var(--f-mint);border:1.5px solid #D3EEDC;
+    top:26px;left:26px;z-index:-1;
+  }
+
+  /* SECTION shared */
+  section{padding:90px 0;}
+  .section-head{max-width:560px;margin-bottom:52px;}
+  .section-head .eyebrow{margin-bottom:16px;}
+  .section-head h2{font-size:clamp(26px,3.4vw,36px);font-weight:700;margin-bottom:12px;}
+  .section-head p{color:var(--f-muted);font-size:16px;}
+
+  /* FEATURES */
+  .features{background:var(--f-mint);}
+  .feat-grid{display:grid;grid-template-columns:1fr;gap:20px;}
+  @media(min-width:720px){.feat-grid{grid-template-columns:repeat(3,1fr);}}
+  .feat-card{
+    background:#fff;border:1px solid #D3EEDC;border-radius:var(--radius);
+    padding:26px 24px;
+  }
+  .feat-icon{
+    width:42px;height:42px;border-radius:10px;background:var(--f-ink);
+    display:flex;align-items:center;justify-content:center;margin-bottom:18px;
+  }
+  .feat-icon svg{width:20px;height:20px;stroke:var(--f-green-light);}
+  .feat-card h3{font-size:17px;font-weight:600;margin-bottom:8px;font-family:'Inter',sans-serif;letter-spacing:0;}
+  .feat-card p{font-size:14.5px;color:var(--f-muted);}
+
+  /* GALLERY */
+  .gallery-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
+  @media(min-width:720px){.gallery-grid{grid-template-columns:repeat(4,1fr);}}
+  .gal-card{
+    aspect-ratio:1.58/1;border-radius:12px;padding:16px;
+    display:flex;flex-direction:column;justify-content:space-between;
+    color:#fff;font-family:'JetBrains Mono',monospace;font-size:11px;
+    position:relative;overflow:hidden;
+  }
+  .gal-card::after{content:"";position:absolute;inset:0;background:linear-gradient(120deg,rgba(255,255,255,.25),transparent 40%);}
+  .gal-card span{position:relative;z-index:1;}
+  .gal-card .gm{font-weight:700;font-size:15px;}
+  .g1{background:linear-gradient(135deg,#0B6B3F,#26A76A);}
+  .g2{background:linear-gradient(135deg,#10140F,#3A4B41);}
+  .g3{background:linear-gradient(135deg,#1E7C4F,#8FD9AE);}
+  .g4{background:linear-gradient(135deg,#0A6B3E,#0E8F52,#D9D3B0);}
+
+  /* PROCESS — genuine sequence, numbering justified */
+  .process{background:var(--f-ink);color:#fff;}
+  .process .section-head p{color:#A9B4AD;}
+  .process .eyebrow{background:rgba(255,255,255,.08);color:#7FD8A6;border-color:rgba(255,255,255,.12);}
+  .steps{display:grid;grid-template-columns:1fr;gap:0;border-top:1px solid rgba(255,255,255,.12);}
+  .step{
+    display:grid;grid-template-columns:64px 1fr;gap:20px;
+    padding:26px 0;border-bottom:1px solid rgba(255,255,255,.12);
+    align-items:start;
+  }
+  @media(min-width:640px){.step{grid-template-columns:80px 1fr 240px;}}
+  .step-num{font-family:'JetBrains Mono',monospace;color:var(--f-green-light);font-size:15px;}
+  .step h3{font-size:18px;font-weight:600;margin-bottom:6px;font-family:'Inter',sans-serif;}
+  .step p{color:#A9B4AD;font-size:14.5px;max-width:440px;}
+  .step-meta{font-family:'JetBrains Mono',monospace;font-size:12.5px;color:#728279;justify-self:start;}
+  @media(min-width:640px){.step-meta{justify-self:end;text-align:right;}}
+
+  /* PRICING */
+  .price-grid{display:grid;grid-template-columns:1fr;gap:18px;}
+  @media(min-width:780px){.price-grid{grid-template-columns:repeat(3,1fr);}}
+  .price-card{
+    border:1.5px solid var(--f-grid);border-radius:var(--radius);padding:30px 26px;
+    display:flex;flex-direction:column;gap:18px;
+  }
+  .price-card.hot{border-color:var(--f-green);background:var(--f-mint);position:relative;}
+  .price-tag{
+    position:absolute;top:-13px;right:24px;background:var(--f-green);color:#fff;
+    font-family:'JetBrains Mono',monospace;font-size:11px;padding:5px 10px;border-radius:999px;
+  }
+  .price-card h3{font-size:16px;font-weight:600;}
+  .price-amt{font-family:'Space Grotesk',sans-serif;font-size:32px;font-weight:700;}
+  .price-amt span{font-family:'Inter',sans-serif;font-size:13px;font-weight:500;color:var(--f-muted);}
+  .price-list{list-style:none;font-size:14px;color:var(--f-muted);display:flex;flex-direction:column;gap:10px;}
+  .price-list li{display:flex;gap:8px;}
+  .price-list li::before{content:"✓";color:var(--f-green);font-weight:700;}
+
+  /* CTA */
+  .cta{
+    background:linear-gradient(135deg,#0A6B3E,#0E8F52);
+    color:#fff;border-radius:24px;
+    padding:64px 40px;text-align:center;
+    margin:0 24px;max-width:calc(var(--maxw) - 48px);margin:0 auto;
+  }
+  .cta h2{font-size:clamp(26px,4vw,38px);margin-bottom:14px;}
+  .cta p{color:#D6F0E1;margin-bottom:30px;font-size:16px;}
+  .cta .btn{background:#fff;color:var(--f-green-dark);}
+
+  footer{padding:50px 0 30px;border-top:1px solid var(--f-grid);margin-top:40px;}
+  .foot-inner{display:flex;flex-wrap:wrap;justify-content:space-between;gap:24px;align-items:center;}
+  .foot-links{display:flex;gap:24px;font-size:14px;color:var(--f-muted);}
+  .foot-note{font-size:12.5px;color:var(--f-muted);font-family:'JetBrains Mono',monospace;}
+
+  [data-reveal]{opacity:0;transform:translateY(16px);transition:opacity .6s ease, transform .6s ease;}
+  [data-reveal].in{opacity:1;transform:translateY(0);}
+</style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <div class="logo">
+      <div class="logo-mark">F</div>
+      Frogress Shop
+    </div>
+    <div class="nav-links">
+      <a href="#produk">Produk</a>
+      <a href="#galeri">Galeri</a>
+      <a href="#proses">Proses</a>
+      <a href="#harga">Harga</a>
+    </div>
+    <a href="#pesan" class="btn btn-primary nav-cta">Pesan Sekarang</a>
+  </nav>
+</header>
+
+<main>
+  <section class="hero grid-bg">
+    <div class="hero-inner">
+      <div>
+        <div class="eyebrow">UV DIGITAL PRINT · CUSTOM EMONEY</div>
+        <h1 class="display">Emoney custom dengan cetak <em>setajam</em> desain aslinya.</h1>
+        <p class="sub">Frogress Shop mencetak emoney custom pakai teknologi UV print — warna presisi, detail tajam, dan lapisan yang tahan gesekan tiap hari.</p>
+        <div class="hero-actions">
+          <a href="#pesan" class="btn btn-primary">Pesan Desainmu</a>
+          <a href="#galeri" class="btn btn-outline">Lihat Galeri</a>
+        </div>
+        <div class="hero-stats">
+          <div><div class="num">1–2 hari</div><div class="lbl">waktu cetak</div></div>
+          <div><div class="num">UV Print</div><div class="lbl">teknologi cetak</div></div>
+          <div><div class="num">100%</div><div class="lbl">desain custom</div></div>
+        </div>
+      </div>
+      <div class="card-stage">
+        <div class="card-back-deco"></div>
+        <div class="emoney-card">
+          <div class="card-top">
+            <div class="card-chip"></div>
+            <div class="card-mark">F</div>
+          </div>
+          <div class="card-number">4521&nbsp;&nbsp;08••&nbsp;&nbsp;••••&nbsp;&nbsp;7790</div>
+          <div class="card-bottom">
+            <div class="card-name">
+              <div class="card-brand">FROGRESS</div>
+              <div>Custom Emoney</div>
+            </div>
+            <div class="card-uv">UV·PRINT</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="features" id="produk">
+    <div class="wrap">
+      <div class="section-head" data-reveal>
+        <div class="eyebrow">KENAPA FROGRESS</div>
+        <h2>Dibuat buat dipakai tiap hari, bukan cuma difoto sekali.</h2>
+        <p>Tiga hal yang kami jaga di setiap cetakan: ketajaman warna, daya tahan lapisan, dan kecocokan desain dengan file aslimu.</p>
+      </div>
+      <div class="feat-grid">
+        <div class="feat-card" data-reveal>
+          <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.9 5.8L20 11l-6.1 2.2L12 19l-1.9-5.8L4 11l6.1-2.2L12 3z"/></svg></div>
+          <h3>Cetak UV, hasil tajam</h3>
+          <p>Tinta UV melekat kuat di permukaan kartu, gradasi warna dan teks kecil tetap terbaca jelas.</p>
+        </div>
+        <div class="feat-card" data-reveal>
+          <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M3 10h18"/></svg></div>
+          <h3>Tahan lama dipakai</h3>
+          <p>Lapisan cetak tahan gesekan dan air, aman keluar-masuk dompet setiap hari.</p>
+        </div>
+        <div class="feat-card" data-reveal>
+          <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h16M4 18h10"/></svg></div>
+          <h3>100% desainmu</h3>
+          <p>Kirim file atau foto sendiri, kami sesuaikan ukuran dan warna sebelum naik cetak — tanpa template paksa.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="galeri">
+    <div class="wrap">
+      <div class="section-head" data-reveal>
+        <div class="eyebrow">GALERI</div>
+        <h2>Beberapa hasil cetak custom.</h2>
+        <p>Contoh gaya yang bisa kamu jadikan referensi — atau kirim desainmu sendiri.</p>
+      </div>
+      <div class="gallery-grid" data-reveal>
+        <div class="gal-card g1"><span class="gm">F</span><span>MINIMAL GREEN</span></div>
+        <div class="gal-card g2"><span class="gm">F</span><span>DARK MONO</span></div>
+        <div class="gal-card g3"><span class="gm">F</span><span>SOFT GRADIENT</span></div>
+        <div class="gal-card g4"><span class="gm">F</span><span>DUOTONE</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="process" id="proses">
+    <div class="wrap">
+      <div class="section-head" data-reveal>
+        <div class="eyebrow">ALUR PEMESANAN</div>
+        <h2>Empat langkah dari desain sampai kartu di tanganmu.</h2>
+      </div>
+      <div class="steps" data-reveal>
+        <div class="step">
+          <div class="step-num">01</div>
+          <div><h3>Kirim desain</h3><p>Upload file desain atau foto lewat WhatsApp/form pemesanan.</p></div>
+          <div class="step-meta">±5 menit</div>
+        </div>
+        <div class="step">
+          <div class="step-num">02</div>
+          <div><h3>Pratinjau & konfirmasi</h3><p>Kami kirim preview hasil layout sebelum masuk antrian cetak.</p></div>
+          <div class="step-meta">±1 jam</div>
+        </div>
+        <div class="step">
+          <div class="step-num">03</div>
+          <div><h3>Proses cetak UV</h3><p>Kartu dicetak dan dilapisi, lalu dicek kualitas satu per satu.</p></div>
+          <div class="step-meta">1–2 hari</div>
+        </div>
+        <div class="step">
+          <div class="step-num">04</div>
+          <div><h3>Dikirim ke kamu</h3><p>Dikemas rapi dan dikirim via ekspedisi pilihan.</p></div>
+          <div class="step-meta">sesuai kurir</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="harga">
+    <div class="wrap">
+      <div class="section-head" data-reveal>
+        <div class="eyebrow">HARGA</div>
+        <h2>Pilih sesuai kebutuhan.</h2>
+        <p>Harga contoh — sesuaikan dengan biaya produksi dan ongkir kamu.</p>
+      </div>
+      <div class="price-grid" data-reveal>
+        <div class="price-card">
+          <h3>Single Custom</h3>
+          <div class="price-amt">Rp35rb <span>/ kartu</span></div>
+          <ul class="price-list">
+            <li>1 desain custom</li>
+            <li>Cetak UV standar</li>
+            <li>Preview sebelum cetak</li>
+          </ul>
+        </div>
+        <div class="price-card hot">
+          <div class="price-tag">PALING LARIS</div>
+          <h3>Paket Duo</h3>
+          <div class="price-amt">Rp65rb <span>/ 2 kartu</span></div>
+          <ul class="price-list">
+            <li>2 desain custom berbeda</li>
+            <li>Cetak UV prioritas</li>
+            <li>Revisi 1x gratis</li>
+          </ul>
+        </div>
+        <div class="price-card">
+          <h3>Bulk / Komunitas</h3>
+          <div class="price-amt">Hubungi kami</div>
+          <ul class="price-list">
+            <li>Pesan 10+ kartu</li>
+            <li>Harga khusus per kartu</li>
+            <li>Desain seragam/tim</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="pesan">
+    <div class="cta" data-reveal>
+      <h2>Siap cetak emoney custom kamu?</h2>
+      <p>Kirim desain sekarang, preview jadi hari ini juga.</p>
+      <a href="https://wa.me/6280000000000" class="btn">Chat via WhatsApp</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot-inner">
+    <div class="logo"><div class="logo-mark">F</div>Frogress Shop</div>
+    <div class="foot-links">
+      <a href="#produk">Produk</a>
+      <a href="#galeri">Galeri</a>
+      <a href="#proses">Proses</a>
+      <a href="#harga">Harga</a>
+    </div>
+    <div class="foot-note">© 2026 FROGRESS SHOP — CUSTOM EMONEY UV PRINT</div>
+  </div>
+</footer>
+
+<script>
+  // reveal on scroll
+  const els = document.querySelectorAll('[data-reveal]');
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, {threshold:.15});
+  els.forEach(el=>io.observe(el));
+
+  // card tilt follows cursor
+  const stage = document.querySelector('.card-stage');
+  const card = document.querySelector('.emoney-card');
+  if(stage && card){
+    stage.addEventListener('mousemove', (e)=>{
+      const r = stage.getBoundingClientRect();
+      const x = (e.clientX - r.left)/r.width - 0.5;
+      const y = (e.clientY - r.top)/r.height - 0.5;
+      card.style.transform = `rotate(${-6 + x*10}deg) rotateX(${-y*8}deg)`;
+    });
+    stage.addEventListener('mouseleave', ()=>{ card.style.transform = 'rotate(-6deg)'; });
+  }
+</script>
+
+</body>
+</html>
