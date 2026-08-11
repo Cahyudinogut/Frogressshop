@@ -47,9 +47,60 @@
   .btn:hover{transform:translateY(-2px);}
   .btn-primary{background:var(--f-green);}
   .btn-primary:hover{box-shadow:0 6px 18px rgba(14,143,82,.35);}
+
+  
   .nav-cta{display:none;}
-  @media(min-width:860px){.nav-cta{display:inline-flex;}}
-  @media(max-width:859px){.nav-links{display:none;}}
+
+@media(min-width:860px){
+  .nav-cta{
+    display:inline-flex;
+  }
+}
+
+/* MOBILE MENU */
+.mobile-menu-btn{
+  display:none;
+  border:none;
+  background:transparent;
+  font-size:28px;
+  cursor:pointer;
+  color:var(--f-ink);
+  padding:4px 8px;
+}
+
+@media(max-width:859px){
+
+  .nav-links{
+    display:none;
+    position:absolute;
+    top:100%;
+    left:0;
+    right:0;
+    background:#fff;
+    border-bottom:1px solid var(--f-grid);
+    padding:12px 24px;
+    flex-direction:column;
+    gap:0;
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+  }
+
+  .nav-links.active{
+    display:flex;
+  }
+
+  .nav-links a{
+    padding:14px 0;
+    border-bottom:1px solid var(--f-grid);
+  }
+
+  .nav-links a:last-child{
+    border-bottom:none;
+  }
+
+  .mobile-menu-btn{
+    display:block;
+  }
+}
 
   /* PAGE HEAD */
   .page-head{padding:64px 0 48px;}
@@ -779,6 +830,14 @@ document.getElementById('orderBackdrop').addEventListener('click', (e)=>{
 document.addEventListener('keydown', (e)=>{
   if(e.key==='Escape') document.getElementById('orderBackdrop').classList.remove('open');
 });
+
+const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+const navLinks = document.getElementById('navLinks');
+
+mobileMenuBtn.addEventListener('click', () => {
+  navLinks.classList.toggle('active');
+});
+  
 </script>
 
 </body>
