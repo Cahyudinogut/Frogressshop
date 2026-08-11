@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Produk — Frogress Shop</title>
+<meta name="description" content="Katalog emoney custom UV print Frogress Shop — pilih desain atau request custom sendiri.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --f-green:#0E8F52;
+    --f-green-dark:#0A6B3E;
+    --f-green-light:#3FB37B;
+    --f-ink:#10140F;
+    --f-paper:#FFFFFF;
+    --f-grid:#E4EAE5;
+    --f-mint:#EEF8F1;
+    --f-muted:#5B6660;
+    --radius:14px;
+    --maxw:1180px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Inter',sans-serif;color:var(--f-ink);background:var(--f-paper);line-height:1.5;-webkit-font-smoothing:antialiased;}
+  .mono{font-family:'JetBrains Mono',monospace;}
+  h1,h2,h3,.display{font-family:'Space Grotesk',sans-serif;letter-spacing:-0.02em;}
+  a{color:inherit;text-decoration:none;}
+  img,svg{display:block;max-width:100%;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px;}
+  button{font-family:inherit;cursor:pointer;}
+
+  .grid-bg{
+    background-image:linear-gradient(var(--f-grid) 1px, transparent 1px),linear-gradient(90deg, var(--f-grid) 1px, transparent 1px);
+    background-size:40px 40px;background-position:center top;
+  }
+
+  header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--f-grid);}
+  nav{display:flex;align-items:center;justify-content:space-between;padding:16px 24px;max-width:var(--maxw);margin:0 auto;}
+  .logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:18px;}
+  .logo-mark{width:34px;height:34px;border-radius:9px;background:var(--f-green);display:flex;align-items:center;justify-content:center;color:#fff;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:18px;box-shadow:0 2px 0 var(--f-green-dark);}
+  .nav-links{display:flex;gap:32px;font-size:14.5px;font-weight:500;color:var(--f-muted);}
+  .nav-links a.active{color:var(--f-ink);}
+  .nav-links a:hover{color:var(--f-ink);}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:11px 20px;border-radius:999px;font-weight:600;font-size:14.5px;background:var(--f-ink);color:#fff;border:none;transition:transform .15s ease, box-shadow .15s ease;}
+  .btn:hover{transform:translateY(-2px);}
+  .btn-primary{background:var(--f-green);}
+  .btn-primary:hover{box-shadow:0 6px 18px rgba(14,143,82,.35);}
+  .nav-cta{display:none;}
+  @media(min-width:860px){.nav-cta{display:inline-flex;}}
+  @media(max-width:859px){.nav-links{display:none;}}
+
+  /* PAGE HEAD */
+  .page-head{padding:64px 0 48px;}
+  .eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:'JetBrains Mono',monospace;font-size:12.5px;color:var(--f-green-dark);background:var(--f-mint);padding:6px 12px;border-radius:999px;margin-bottom:18px;border:1px solid #D3EEDC;}
+  .eyebrow::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--f-green);}
+  .page-head h1{font-size:clamp(30px,4.4vw,46px);font-weight:700;margin-bottom:14px;max-width:640px;}
+  .page-head p{color:var(--f-muted);font-size:16.5px;max-width:560px;}
+
+  /* PRODUCT GRID */
+  .prod-grid{display:grid;grid-template-columns:1fr;gap:22px;padding-bottom:90px;}
+  @media(min-width:640px){.prod-grid{grid-template-columns:repeat(2,1fr);}}
+  @media(min-width:980px){.prod-grid{grid-template-columns:repeat(3,1fr);}}
+
+  .prod-card{
+    border:1px solid var(--f-grid);border-radius:var(--radius);overflow:hidden;
+    background:#fff;display:flex;flex-direction:column;
+    transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+  }
+  .prod-card:hover{transform:translateY(-4px);box-shadow:0 16px 32px -18px rgba(16,20,15,.25);border-color:#D3EEDC;}
+  .prod-thumb{aspect-ratio:4/3;position:relative;overflow:hidden;background:var(--f-mint);}
+  .prod-thumb img{width:100%;height:100%;object-fit:cover;}
+  .prod-count{
+    position:absolute;top:10px;right:10px;background:rgba(16,20,15,.72);color:#fff;
+    font-family:'JetBrains Mono',monospace;font-size:11px;padding:4px 9px;border-radius:999px;
+  }
+  .prod-body{padding:18px 18px 20px;display:flex;flex-direction:column;gap:10px;flex:1;}
+  .prod-tag{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--f-green-dark);letter-spacing:.03em;}
+  .prod-card h3{font-size:16.5px;font-weight:600;font-family:'Inter',sans-serif;letter-spacing:0;line-height:1.3;}
+  .prod-card p{font-size:13.5px;color:var(--f-muted);flex:1;}
+  .prod-open{
+    align-self:flex-start;font-size:13.5px;font-weight:600;color:var(--f-green-dark);
+    display:inline-flex;align-items:center;gap:6px;
+  }
+  .prod-open svg{width:14px;height:14px;stroke:var(--f-green-dark);transition:transform .15s ease;}
+  .prod-card:hover .prod-open svg{transform:translateX(3px);}
+
+  /* card mockup slides (for original/generated designs) */
+  .cm-card{
+    position:relative;width:100%;height:100%;border-radius:0;
+    display:flex;flex-direction:column;justify-content:space-between;
+    padding:18px 20px;color:#fff;overflow:hidden;
+  }
+  .cm-card.back{color:var(--f-ink);}
+  .cm-top{display:flex;justify-content:space-between;align-items:flex-start;position:relative;z-index:2;}
+  .cm-chip{width:34px;height:26px;border-radius:5px;background:linear-gradient(135deg,#E9D98A,#C9A94B);}
+  .cm-mark{width:24px;height:24px;border-radius:6px;background:rgba(255,255,255,.22);display:flex;align-items:center;justify-content:center;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:12px;}
+  .cm-mid{position:relative;z-index:2;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.06em;opacity:.9;}
+  .cm-bottom{display:flex;justify-content:space-between;align-items:flex-end;position:relative;z-index:2;}
+  .cm-name{font-size:10px;letter-spacing:.08em;text-transform:uppercase;opacity:.85;}
+  .cm-brand{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:13px;}
+  .cm-badge{font-family:'JetBrains Mono',monospace;font-size:9.5px;background:rgba(255,255,255,.18);padding:3px 7px;border-radius:5px;}
+  .cm-deco{position:absolute;inset:0;z-index:1;opacity:.5;}
+  .cm-finish-label{
+    position:absolute;bottom:14px;left:14px;z-index:3;
+    font-family:'JetBrains Mono',monospace;font-size:11px;
+    background:rgba(16,20,15,.55);color:#fff;padding:5px 10px;border-radius:999px;
+  }
+  .doff-tex{background-image:radial-gradient(rgba(255,255,255,.08) 1px, transparent 1px);background-size:5px 5px;}
+  .glossy-tex::after{content:"";position:absolute;inset:0;background:linear-gradient(120deg, rgba(255,255,255,.4) 0%, rgba(255,255,255,0) 28%, rgba(255,255,255,0) 65%, rgba(255,255,255,.22) 100%);z-index:2;}
+  .emboss-ring{position:absolute;border-radius:50%;border:2px solid rgba(255,255,255,.35);z-index:1;}
+
+  /* mascot bits (original, generic shapes only) */
+  .bear-body{position:absolute;right:18px;bottom:-10px;width:120px;height:120px;border-radius:50%;background:rgba(255,255,255,.16);z-index:1;}
+  .bear-ear{position:absolute;width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,.16);z-index:1;}
+  .blob{position:absolute;border-radius:46% 54% 58% 42% / 48% 42% 58% 52%;background:rgba(255,255,255,.18);z-index:1;}
+  .spark{position:absolute;width:6px;height:6px;background:rgba(255,255,255,.55);border-radius:50%;z-index:1;}
+  .beam{position:absolute;background:linear-gradient(180deg, rgba(255,255,255,.35), transparent);z-index:1;}
+  .web-line{position:absolute;border:1px solid rgba(255,255,255,.28);border-radius:50%;z-index:1;}
+
+  /* MODAL */
+  .modal-backdrop{
+    position:fixed;inset:0;background:rgba(16,20,15,.7);backdrop-filter:blur(4px);
+    display:none;align-items:center;justify-content:center;z-index:100;padding:20px;
+  }
+  .modal-backdrop.open{display:flex;}
+  .modal{
+    background:#fff;border-radius:20px;max-width:920px;width:100%;max-height:88vh;overflow:hidden;
+    display:grid;grid-template-columns:1fr;
+  }
+  @media(min-width:820px){.modal{grid-template-columns:1fr 1fr;max-height:640px;}}
+  .modal-visual{background:var(--f-mint);position:relative;display:flex;flex-direction:column;}
+  .slide-stage{flex:1;position:relative;overflow:hidden;min-height:280px;}
+  .slide{position:absolute;inset:0;opacity:0;transition:opacity .25s ease;display:flex;align-items:center;justify-content:center;padding:20px;}
+  .slide.active{opacity:1;}
+  .slide img{max-width:100%;max-height:100%;object-fit:contain;border-radius:10px;box-shadow:0 20px 40px -20px rgba(16,20,15,.35);}
+  .slide-card-wrap{width:260px;height:164px;border-radius:14px;box-shadow:0 20px 40px -20px rgba(16,20,15,.4);}
+  .slide-nav{position:absolute;top:50%;transform:translateY(-50%);width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.9);border:1px solid var(--f-grid);display:flex;align-items:center;justify-content:center;z-index:5;}
+  .slide-nav svg{width:16px;height:16px;}
+  .slide-prev{left:14px;}
+  .slide-next{right:14px;}
+  .slide-dots{display:flex;gap:6px;justify-content:center;padding:14px;}
+  .dot{width:6px;height:6px;border-radius:50%;background:var(--f-grid);transition:background .15s ease, width .15s ease;}
+  .dot.active{background:var(--f-green);width:16px;border-radius:4px;}
+  .modal-info{padding:26px 26px 20px;display:flex;flex-direction:column;overflow-y:auto;}
+  .modal-info h3{font-size:20px;font-weight:700;margin-bottom:6px;}
+  .modal-info .prod-tag{margin-bottom:10px;}
+  .modal-info .desc-short{color:var(--f-muted);font-size:14px;margin-bottom:18px;}
+  .modal-close{position:absolute;top:14px;right:14px;width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,.9);border:1px solid var(--f-grid);display:flex;align-items:center;justify-content:center;z-index:6;}
+  .order-toggle{
+    font-size:13.5px;font-weight:600;color:var(--f-green-dark);display:flex;align-items:center;gap:6px;
+    padding-top:14px;border-top:1px solid var(--f-grid);margin-top:auto;
+  }
+  .order-toggle svg{width:14px;height:14px;transition:transform .2s ease;}
+  .order-toggle.open svg{transform:rotate(180deg);}
+  .order-body{display:none;font-size:13px;color:var(--f-muted);margin-top:14px;white-space:pre-line;}
+  .order-body.open{display:block;}
+  .order-body strong{color:var(--f-ink);}
+  .modal-cta{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap;}
+
+  footer{padding:50px 0 30px;border-top:1px solid var(--f-grid);margin-top:20px;}
+  .foot-inner{display:flex;flex-wrap:wrap;justify-content:space-between;gap:24px;align-items:center;}
+  .foot-links{display:flex;gap:24px;font-size:14px;color:var(--f-muted);}
+  .foot-note{font-size:12.5px;color:var(--f-muted);font-family:'JetBrains Mono',monospace;}
+</style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <a href="index.html" class="logo"><div class="logo-mark">F</div>Frogress Shop</a>
+    <div class="nav-links">
+      <a href="index.html#produk">Beranda</a>
+      <a href="produk.html" class="active">Produk</a>
+      <a href="index.html#proses">Proses</a>
+      <a href="index.html#harga">Harga</a>
+    </div>
+    <a href="https://wa.me/6280000000000" class="btn btn-primary nav-cta">Chat Admin</a>
+  </nav>
+</header>
+
+<main>
+  <section class="page-head grid-bg">
+    <div class="wrap">
+      <div class="eyebrow">KATALOG PRODUK</div>
+      <h1>Pilih desain, atau minta desainmu sendiri.</h1>
+      <p>Klik salah satu produk untuk lihat semua slide desainnya, lengkap dengan cara order dan alur pesanan.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="prod-grid" id="prodGrid"></div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot-inner">
+    <a href="index.html" class="logo"><div class="logo-mark">F</div>Frogress Shop</a>
+    <div class="foot-links">
+      <a href="index.html#produk">Produk</a>
+      <a href="index.html#proses">Proses</a>
+      <a href="index.html#harga">Harga</a>
+    </div>
+    <div class="foot-note">© 2026 FROGRESS SHOP — CUSTOM EMONEY UV PRINT</div>
+  </div>
+</footer>
+
+<!-- MODAL -->
+<div class="modal-backdrop" id="modalBackdrop">
+  <div class="modal">
+    <div class="modal-visual">
+      <button class="modal-close" id="modalClose" aria-label="Tutup">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#10140F" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+      <div class="slide-stage" id="slideStage">
+        <button class="slide-nav slide-prev" id="slidePrev"><svg viewBox="0 0 24 24" fill="none" stroke="#10140F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg></button>
+        <button class="slide-nav slide-next" id="slideNext"><svg viewBox="0 0 24 24" fill="none" stroke="#10140F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></button>
+      </div>
+      <div class="slide-dots" id="slideDots"></div>
+    </div>
+    <div class="modal-info">
+      <div class="prod-tag mono" id="modalTag"></div>
+      <h3 id="modalTitle"></h3>
+      <p class="desc-short" id="modalDesc"></p>
+      <div class="modal-cta">
+        <a href="https://wa.me/6280000000000" class="btn btn-primary" id="modalWA">Pesan via WhatsApp</a>
+      </div>
+      <button class="order-toggle" id="orderToggle">
+        Lihat cara order &amp; alur pesanan
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+      <div class="order-body" id="orderBody"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ---------- shared order description (identical for every product) ---------- */
+const ORDER_INFO = `<strong>>> Cara Order <<</strong>
+> Tentukan produk yang ingin di-order (kartu / desain).
+- Etalase koleksi bisa pilih desain atau custom chat admin
+Silakan langsung pilih template desain yang tersedia.
+- Custom desain lainnya:
+Chat admin untuk request gambar/data (Kartu Sultan, Pokémon, Anime, K-Pop, dll).
+- Desain sendiri:
+Ukuran 86.6 × 55 mm | 500 DPI
+Kirim file PDF / PNG / JPG / TIFF dan konfirmasi ke admin.
+
+> Tinggalkan catatan saat checkout agar pesanan dapat diproses dengan benar.
+
+<strong>> Alur Pesanan:</strong>
+Preview Desain -> ACC / Revisi -> Fix ACC -> Cetak -> Kirim
+
+<strong>> Waktu Proses</strong>
+- Produksi 1 hari kerja setelah desain Fix ACC.
+- Batas maksimal ACC pukul 11.00 WIB (ACC di atas jam tersebut diproses ke hari kerja berikutnya).
+- Proses mengikuti antrian produksi.
+
+<strong>> Catatan Penting:</strong>
+Tanpa chat admin & catatan pembeli dalam 1×6 jam setelah checkout, pesanan akan dicetak random sesuai varian/template yang dipilih.
+
+<strong>> Pilihan jenis kartu</strong>
+- e-money Mandiri
+- Flazz Gen 2 BCA
+- BRIZZI BRI
+- TapCash BNI
+- PVC
+- RFID (Proximity / Mifare)
+
+<strong>> Pilihan finishing</strong>
+- Doff  > matte
+- Glossy  > mengkilap
+- 3D Emboss  > efek timbul untuk nama, logo, atau area tertentu
+- 3D Otomatis Basecolor  > efek timbul/tekstur mengikuti warna desain
+
+<strong>> Hasil cetak</strong>
+Full UV printing, warna tajam, presisi, tidak pakai stiker.
+Bahan dan Tinta UV Premium, cocok untuk penggunaan harian sekaligus tampil gaya.
+
+<strong>> Perlu diperhatikan</strong>
+- Saldo awal Rp 0,-
+- Untuk Flazz Gen 2 ada chip di depan dan strip magnetik di belakang, desain harus disesuaikan agar tidak mengenai chip dan strip.
+- Semua kartu bisa isi/cek saldo lewat HP dengan NFC.
+- Jika order tanpa chat atau catatan selama sekitar 6 jam setelah checkout > pencetakan bisa dilakukan random sesuai varian yang dipilih.
+- Untuk custom nama tanpa catatan, nama yang dicantumkan akan kami ambil dari username / label pembeli.
+- Barang PO, dibuat sesuai permintaan, mohon pahami alur agar tidak komplain karena tidak ready stock.`;
+
+/* ---------- helper to build an original card-mockup slide (no third-party IP) ---------- */
+function cardFront({grad, brand, mark, deco}){
+  return `<div class="cm-card" style="background:${grad}">
+    <div class="cm-top"><div class="cm-chip"></div><div class="cm-mark">${mark}</div></div>
+    <div class="cm-deco">${deco||''}</div>
+    <div class="cm-mid">•••• •••• •••• ••••</div>
+    <div class="cm-bottom">
+      <div><div class="cm-brand">${brand}</div><div class="cm-name">Custom Emoney</div></div>
+      <div class="cm-badge">UV·PRINT</div>
+    </div>
+  </div>`;
+}
+function cardBack({grad, brand}){
+  return `<div class="cm-card back" style="background:${grad}">
+    <div class="cm-top"><div class="cm-mark" style="background:rgba(16,20,15,.08)">F</div></div>
+    <div class="cm-mid" style="opacity:.6;color:var(--f-ink)">frogressshop.vercel.app</div>
+    <div class="cm-bottom">
+      <div class="cm-name" style="color:var(--f-ink);opacity:.7">${brand} — saldo awal Rp 0</div>
+      <div class="cm-badge" style="background:rgba(16,20,15,.08);color:var(--f-ink)">2 SISI</div>
+    </div>
+  </div>`;
+}
+function cardFinish({grad, brand, mode}){
+  const tex = mode==='doff' ? 'doff-tex' : 'glossy-tex';
+  return `<div class="cm-card ${tex}" style="background:${grad}">
+    <div class="cm-top"><div class="cm-chip"></div><div class="cm-mark">F</div></div>
+    <div class="cm-mid">FINISHING SAMPLE</div>
+    <div class="cm-bottom"><div class="cm-brand">${brand}</div><div class="cm-badge">3D EMBOSS</div></div>
+    <div class="cm-finish-label">${mode==='doff' ? 'Finishing: Doff (Matte)' : 'Finishing: Glossy'}</div>
+  </div>`;
+}
+
+/* ---------- product data ---------- */
+const products = [
+  {
+    tag: "KOLEKSI · SIAP CETAK",
+    title: "Kartu Emoney Capybara Print UV 2 Sisi",
+    desc: "Desain capybara estetik, full UV print 2 sisi, bisa custom nama.",
+    slides: [
+      {type:'img', src:'images/capybara-1.png'},
+      {type:'img', src:'images/capybara-2.png'},
+      {type:'img', src:'images/capybara-3.png'},
+      {type:'img', src:'images/capybara-4.png'},
+      {type:'img', src:'images/capybara-5.png'},
+      {type:'img', src:'images/capybara-6.png'},
+    ]
+  },
+  {
+    tag: "KOLEKSI · SEMUA JENIS KARTU",
+    title: "Kartu E-toll / Emoney Custom Semua Jenis",
+    desc: "Cetak custom untuk Flazz BCA, e-money Mandiri, TapCash BNI, BRIZZI BRI, PVC, dan RFID.",
+    slides: [
+      {type:'img', src:'images/etoll-2.png'},
+      {type:'img', src:'images/etoll-1.png'},
+    ]
+  },
+  {
+    tag: "KOLEKSI · CUSTOM DESAIN",
+    title: "Kartu Emoney Beruang Pastel Sahabat Kecil",
+    desc: "Desain orisinal beruang pastel yang lucu dan hangat — cocok untuk kado atau kartu harian.",
+    slides: [
+      {type:'card', variant: cardFront({grad:'linear-gradient(135deg,#C9B8E8,#8E7BC4)', brand:'FROGRESS', mark:'F', deco:'<div class="bear-body" style="right:-10px;bottom:-30px"></div><div class="bear-ear" style="right:6px;top:14px"></div><div class="bear-ear" style="right:44px;top:6px"></div>'})},
+      {type:'card', variant: cardBack({grad:'#F4EFFB', brand:'Beruang Pastel'})},
+      {type:'card', variant: cardFinish({grad:'linear-gradient(135deg,#C9B8E8,#8E7BC4)', brand:'FROGRESS', mode:'doff'})},
+      {type:'card', variant: cardFinish({grad:'linear-gradient(135deg,#C9B8E8,#8E7BC4)', brand:'FROGRESS', mode:'glossy'})},
+    ]
+  },
+  {
+    tag: "KOLEKSI · CUSTOM DESAIN",
+    title: "Kartu Emoney Panggung Idol World Tour",
+    desc: "Tema konser & lampu panggung untuk penggemar boyband/girlband — bisa custom nama grup favoritmu (chat admin).",
+    slides: [
+      {type:'card', variant: cardFront({grad:'linear-gradient(160deg,#161033,#2C1E63 45%,#7A4FE0)', brand:'FROGRESS', mark:'F', deco:'<div class="beam" style="left:20%;top:-20%;width:26px;height:180%;transform:rotate(12deg)"></div><div class="beam" style="left:55%;top:-20%;width:20px;height:180%;transform:rotate(-8deg)"></div><div class="spark" style="left:30%;top:24%"></div><div class="spark" style="left:70%;top:40%"></div><div class="spark" style="left:60%;top:65%"></div>'})},
+      {type:'card', variant: cardBack({grad:'#F1EEFB', brand:'Panggung Idol'})},
+      {type:'card', variant: cardFinish({grad:'linear-gradient(160deg,#161033,#2C1E63 45%,#7A4FE0)', brand:'FROGRESS', mode:'doff'})},
+      {type:'card', variant: cardFinish({grad:'linear-gradient(160deg,#161033,#2C1E63 45%,#7A4FE0)', brand:'FROGRESS', mode:'glossy'})},
+    ]
+  },
+  {
+    tag: "KOLEKSI · CUSTOM DESAIN",
+    title: "Kartu Emoney K-Style Minimalis",
+    desc: "Palet monokrom dengan aksen neon, gaya kartu ala idol Korea — nama & warna bisa disesuaikan.",
+    slides: [
+      {type:'card', variant: cardFront({grad:'linear-gradient(135deg,#111111,#2A2A2A 60%,#FF4FA3)', brand:'FROGRESS', mark:'F', deco:'<div class="spark" style="left:20%;top:20%"></div><div class="spark" style="left:75%;top:30%"></div><div class="spark" style="left:50%;top:70%"></div><div class="blob" style="right:-30px;bottom:-30px;width:110px;height:110px"></div>'})},
+      {type:'card', variant: cardBack({grad:'#F2F2F2', brand:'K-Style Minimalis'})},
+      {type:'card', variant: cardFinish({grad:'linear-gradient(135deg,#111111,#2A2A2A 60%,#FF4FA3)', brand:'FROGRESS', mode:'doff'})},
+    ]
+  },
+  {
+    tag: "KOLEKSI · CUSTOM DESAIN",
+    title: "Kartu Emoney Superhero Kota",
+    desc: "Tema kota malam & jaring superhero orisinal — desain custom lain (karakter favoritmu) tinggal chat admin.",
+    slides: [
+      {type:'card', variant: cardFront({grad:'linear-gradient(160deg,#8A1620,#C22233 55%,#1B3E8C)', brand:'FROGRESS', mark:'F', deco:'<div class="web-line" style="width:180px;height:180px;right:-60px;top:-60px"></div><div class="web-line" style="width:120px;height:120px;right:-40px;top:-40px"></div><div class="web-line" style="width:60px;height:60px;right:-20px;top:-20px"></div>'})},
+      {type:'card', variant: cardBack({grad:'#FBEAEA', brand:'Superhero Kota'})},
+      {type:'card', variant: cardFinish({grad:'linear-gradient(160deg,#8A1620,#C22233 55%,#1B3E8C)', brand:'FROGRESS', mode:'doff'})},
+      {type:'card', variant: cardFinish({grad:'linear-gradient(160deg,#8A1620,#C22233 55%,#1B3E8C)', brand:'FROGRESS', mode:'glossy'})},
+    ]
+  },
+  {
+    tag: "KOLEKSI · CUSTOM DESAIN",
+    title: "Kartu Emoney Spons Laut Ceria",
+    desc: "Maskot spons laut orisinal dengan gelembung biru — playful buat harian, custom nama gratis.",
+    slides: [
+      {type:'card', variant: cardFront({grad:'linear-gradient(150deg,#0EA5A8,#3FC7C0 55%,#F4D35E)', brand:'FROGRESS', mark:'F', deco:'<div class="blob" style="right:8px;bottom:-24px;width:110px;height:96px;background:rgba(255,255,255,.24)"></div><div class="spark" style="left:20%;top:24%;width:9px;height:9px"></div><div class="spark" style="left:65%;top:18%;width:6px;height:6px"></div><div class="spark" style="left:75%;top:55%;width:7px;height:7px"></div>'})},
+      {type:'card', variant: cardBack({grad:'#EAFBF9', brand:'Spons Laut Ceria'})},
+      {type:'card', variant: cardFinish({grad:'linear-gradient(150deg,#0EA5A8,#3FC7C0 55%,#F4D35E)', brand:'FROGRESS', mode:'doff'})},
+      {type:'card', variant: cardFinish({grad:'linear-gradient(150deg,#0EA5A8,#3FC7C0 55%,#F4D35E)', brand:'FROGRESS', mode:'glossy'})},
+    ]
+  },
+];
+
+/* ---------- render grid ---------- */
+const grid = document.getElementById('prodGrid');
+products.forEach((p, i) => {
+  const cover = p.slides[0];
+  const thumbHTML = cover.type === 'img'
+    ? `<img src="${cover.src}" alt="${p.title}">`
+    : `<div style="width:100%;height:100%">${cover.variant}</div>`;
+  const card = document.createElement('div');
+  card.className = 'prod-card';
+  card.innerHTML = `
+    <div class="prod-thumb">${thumbHTML}<div class="prod-count">${p.slides.length} slide</div></div>
+    <div class="prod-body">
+      <div class="prod-tag mono">${p.tag}</div>
+      <h3>${p.title}</h3>
+      <p>${p.desc}</p>
+      <span class="prod-open">Lihat Detail
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </span>
+    </div>`;
+  card.addEventListener('click', () => openModal(i));
+  grid.appendChild(card);
+});
+
+/* ---------- modal logic ---------- */
+const backdrop = document.getElementById('modalBackdrop');
+const stage = document.getElementById('slideStage');
+const dotsWrap = document.getElementById('slideDots');
+let current = 0, slideIdx = 0;
+
+function openModal(i){
+  current = i; slideIdx = 0;
+  const p = products[i];
+  document.getElementById('modalTag').textContent = p.tag;
+  document.getElementById('modalTitle').textContent = p.title;
+  document.getElementById('modalDesc').textContent = p.desc;
+  document.getElementById('modalWA').href = `https://wa.me/6280000000000?text=${encodeURIComponent('Halo Frogress Shop, saya mau pesan: ' + p.title)}`;
+  document.getElementById('orderBody').innerHTML = ORDER_INFO.replace(/\n/g,'<br>');
+  document.getElementById('orderBody').classList.remove('open');
+  document.getElementById('orderToggle').classList.remove('open');
+
+  stage.querySelectorAll('.slide').forEach(s=>s.remove());
+  dotsWrap.innerHTML = '';
+  p.slides.forEach((s, idx) => {
+    const el = document.createElement('div');
+    el.className = 'slide' + (idx===0 ? ' active' : '');
+    el.innerHTML = s.type === 'img'
+      ? `<img src="${s.src}" alt="${p.title} slide ${idx+1}">`
+      : `<div class="slide-card-wrap">${s.variant}</div>`;
+    stage.insertBefore(el, document.getElementById('slidePrev'));
+    const dot = document.createElement('div');
+    dot.className = 'dot' + (idx===0 ? ' active' : '');
+    dot.addEventListener('click', ()=>goToSlide(idx));
+    dotsWrap.appendChild(dot);
+  });
+  backdrop.classList.add('open');
+}
+
+function goToSlide(idx){
+  const p = products[current];
+  slideIdx = (idx + p.slides.length) % p.slides.length;
+  stage.querySelectorAll('.slide').forEach((el,i)=>el.classList.toggle('active', i===slideIdx));
+  dotsWrap.querySelectorAll('.dot').forEach((el,i)=>el.classList.toggle('active', i===slideIdx));
+}
+
+document.getElementById('slidePrev').addEventListener('click', ()=>goToSlide(slideIdx-1));
+document.getElementById('slideNext').addEventListener('click', ()=>goToSlide(slideIdx+1));
+document.getElementById('modalClose').addEventListener('click', ()=>backdrop.classList.remove('open'));
+backdrop.addEventListener('click', (e)=>{ if(e.target===backdrop) backdrop.classList.remove('open'); });
+document.addEventListener('keydown', (e)=>{
+  if(!backdrop.classList.contains('open')) return;
+  if(e.key==='Escape') backdrop.classList.remove('open');
+  if(e.key==='ArrowRight') goToSlide(slideIdx+1);
+  if(e.key==='ArrowLeft') goToSlide(slideIdx-1);
+});
+document.getElementById('orderToggle').addEventListener('click', function(){
+  this.classList.toggle('open');
+  document.getElementById('orderBody').classList.toggle('open');
+});
+</script>
+</body>
+</html>
