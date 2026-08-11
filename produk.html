@@ -147,21 +147,43 @@
   .slide-dots{display:flex;gap:6px;justify-content:center;padding:14px;}
   .dot{width:6px;height:6px;border-radius:50%;background:var(--f-grid);transition:background .15s ease, width .15s ease;}
   .dot.active{background:var(--f-green);width:16px;border-radius:4px;}
-  .modal-info{height:100%;min-height:0;padding:30px 30px 24px;display:flex;flex-direction:column;overflow-y:auto;}
-  .modal-info h3{font-size:22px;font-weight:700;margin-bottom:6px;}
-  .modal-info .prod-tag{margin-bottom:10px;}
-  .modal-info .desc-short{color:var(--f-muted);font-size:14.5px;margin-bottom:20px;}
+  .modal-info{height:100%;min-height:0;padding:40px 34px;display:flex;flex-direction:column;justify-content:center;text-align:left;overflow-y:auto;}
+  .modal-info h3{font-size:22px;font-weight:700;margin-bottom:8px;}
+  .modal-info .desc-short{color:var(--f-muted);font-size:14.5px;margin:0 0 26px;max-width:380px;}
   .modal-close{position:absolute;top:14px;right:14px;width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.9);border:1px solid var(--f-grid);display:flex;align-items:center;justify-content:center;z-index:6;}
   .order-toggle{
-    font-size:14px;font-weight:600;color:var(--f-green-dark);display:flex;align-items:center;gap:6px;
-    padding-top:16px;border-top:1px solid var(--f-grid);margin-top:20px;flex-shrink:0;background:none;border-left:none;border-right:none;border-bottom:none;width:100%;text-align:left;
+    font-size:14px;font-weight:600;color:var(--f-green-dark);display:flex;align-items:center;justify-content:flex-start;gap:6px;
+    padding-top:16px;border-top:1px solid var(--f-grid);margin-top:24px;flex-shrink:0;background:none;border-left:none;border-right:none;cursor:pointer;width:100%;
   }
-  .order-toggle svg{width:14px;height:14px;transition:transform .2s ease;flex-shrink:0;}
-  .order-toggle.open svg{transform:rotate(180deg);}
-  .order-body{display:none;font-size:13.5px;line-height:1.65;color:var(--f-muted);margin-top:14px;white-space:pre-line;word-wrap:break-word;overflow-wrap:break-word;}
-  .order-body.open{display:block;}
-  .order-body strong{color:var(--f-ink);}
-  .modal-cta{display:flex;gap:10px;margin-top:auto;padding-top:20px;flex-wrap:wrap;flex-shrink:0;}
+  .order-toggle svg{width:14px;height:14px;flex-shrink:0;}
+  .modal-cta{display:flex;justify-content:flex-start;gap:10px;flex-wrap:wrap;flex-shrink:0;}
+
+  /* ORDER INFO MODAL — spacious, structured for comfortable reading */
+  .order-modal{
+    background:#fff;border-radius:22px;width:100%;max-width:760px;max-height:88vh;
+    overflow-y:auto;position:relative;padding:44px 40px 48px;
+  }
+  @media(max-width:640px){.order-modal{padding:60px 22px 32px;border-radius:18px;max-height:92vh;}}
+  .order-modal-body h2{font-size:clamp(22px,3.4vw,28px);font-weight:700;margin-bottom:28px;}
+  .order-modal-body h4{font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--f-green-dark);margin:30px 0 12px;}
+  .order-modal-body h4:first-of-type{margin-top:0;}
+  .order-modal-body p{font-size:15px;line-height:1.7;color:var(--f-muted);}
+  .order-modal-body ol,.order-modal-body ul{padding-left:20px;display:flex;flex-direction:column;gap:8px;}
+  .order-modal-body li{font-size:15px;line-height:1.6;color:var(--f-ink);}
+  .order-modal-body li strong{color:var(--f-ink);}
+  .order-modal-body .note{font-size:13.5px;font-style:italic;color:var(--f-muted);margin-top:10px;}
+  .flow{display:flex;flex-wrap:wrap;align-items:center;gap:8px;background:var(--f-mint);border:1px solid #D3EEDC;border-radius:12px;padding:16px 18px;margin-top:4px;}
+  .flow span{font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:500;color:var(--f-ink);}
+  .flow .arrow{color:var(--f-green-dark);font-weight:700;}
+  .order-grid{display:grid;grid-template-columns:1fr;gap:0;margin-top:6px;}
+  @media(min-width:600px){.order-grid{grid-template-columns:1fr 1fr;column-gap:36px;}}
+  .pill-list{list-style:none;padding-left:0;flex-direction:row;flex-wrap:wrap;gap:8px;}
+  .pill-list li{font-family:'JetBrains Mono',monospace;font-size:12px;background:var(--f-mint);border:1px solid #D3EEDC;color:var(--f-green-dark);padding:6px 12px;border-radius:999px;}
+  .order-callout{
+    margin-top:32px;background:var(--f-ink);color:#fff;border-radius:14px;padding:18px 20px;
+    font-size:14px;line-height:1.6;
+  }
+  .order-callout strong{color:var(--f-green-light);}
 
   footer{padding:50px 0 30px;border-top:1px solid var(--f-grid);margin-top:20px;}
   .foot-inner{display:flex;flex-wrap:wrap;justify-content:space-between;gap:24px;align-items:center;}
@@ -233,63 +255,15 @@
       </div>
       <button class="order-toggle" id="orderToggle">
         Lihat cara order &amp; alur pesanan
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
       </button>
-      <div class="order-body" id="orderBody"></div>
     </div>
   </div>
 </div>
 
 <script>
-/* ---------- shared order description (identical for every product) ---------- */
-const ORDER_INFO = `<strong>>> Cara Order <<</strong>
-> Tentukan produk yang ingin di-order (kartu / desain).
-- Etalase koleksi bisa pilih desain atau custom chat admin
-Silakan langsung pilih template desain yang tersedia.
-- Custom desain lainnya:
-Chat admin untuk request gambar/data (Kartu Sultan, Pokémon, Anime, K-Pop, dll).
-- Desain sendiri:
-Ukuran 86.6 × 55 mm | 500 DPI
-Kirim file PDF / PNG / JPG / TIFF dan konfirmasi ke admin.
-
-> Tinggalkan catatan saat checkout agar pesanan dapat diproses dengan benar.
-
-<strong>> Alur Pesanan:</strong>
-Preview Desain -> ACC / Revisi -> Fix ACC -> Cetak -> Kirim
-
-<strong>> Waktu Proses</strong>
-- Produksi 1 hari kerja setelah desain Fix ACC.
-- Batas maksimal ACC pukul 11.00 WIB (ACC di atas jam tersebut diproses ke hari kerja berikutnya).
-- Proses mengikuti antrian produksi.
-
-<strong>> Catatan Penting:</strong>
-Tanpa chat admin & catatan pembeli dalam 1×6 jam setelah checkout, pesanan akan dicetak random sesuai varian/template yang dipilih.
-
-<strong>> Pilihan jenis kartu</strong>
-- e-money Mandiri
-- Flazz Gen 2 BCA
-- BRIZZI BRI
-- TapCash BNI
-- PVC
-- RFID (Proximity / Mifare)
-
-<strong>> Pilihan finishing</strong>
-- Doff  > matte
-- Glossy  > mengkilap
-- 3D Emboss  > efek timbul untuk nama, logo, atau area tertentu
-- 3D Otomatis Basecolor  > efek timbul/tekstur mengikuti warna desain
-
-<strong>> Hasil cetak</strong>
-Full UV printing, warna tajam, presisi, tidak pakai stiker.
-Bahan dan Tinta UV Premium, cocok untuk penggunaan harian sekaligus tampil gaya.
-
-<strong>> Perlu diperhatikan</strong>
-- Saldo awal Rp 0,-
-- Untuk Flazz Gen 2 ada chip di depan dan strip magnetik di belakang, desain harus disesuaikan agar tidak mengenai chip dan strip.
-- Semua kartu bisa isi/cek saldo lewat HP dengan NFC.
-- Jika order tanpa chat atau catatan selama sekitar 6 jam setelah checkout > pencetakan bisa dilakukan random sesuai varian yang dipilih.
-- Untuk custom nama tanpa catatan, nama yang dicantumkan akan kami ambil dari username / label pembeli.
-- Barang PO, dibuat sesuai permintaan, mohon pahami alur agar tidak komplain karena tidak ready stock.`;
+/* Cara Order & Alur Pesanan is now a dedicated static modal (see #orderBackdrop in HTML) —
+   identical content for every product, so it doesn't need to be rebuilt per product. */
 
 /* ---------- helper to build an original card-mockup slide (no third-party IP) ---------- */
 function cardFront({grad, brand, mark, deco}){
@@ -437,9 +411,6 @@ function openModal(i){
   document.getElementById('modalTitle').textContent = p.title;
   document.getElementById('modalDesc').textContent = p.desc;
   document.getElementById('modalWA').href = `https://wa.me/6280000000000?text=${encodeURIComponent('Halo Frogress Shop, saya mau pesan: ' + p.title)}`;
-  document.getElementById('orderBody').innerHTML = ORDER_INFO.replace(/\n/g,'<br>');
-  document.getElementById('orderBody').classList.remove('open');
-  document.getElementById('orderToggle').classList.remove('open');
 
   stage.querySelectorAll('.slide').forEach(s=>s.remove());
   dotsWrap.innerHTML = '';
@@ -467,6 +438,20 @@ function goToSlide(idx){
 
 document.getElementById('slidePrev').addEventListener('click', ()=>goToSlide(slideIdx-1));
 document.getElementById('slideNext').addEventListener('click', ()=>goToSlide(slideIdx+1));
+
+/* swipe gesture for touch devices */
+let touchStartX = 0, touchStartY = 0;
+stage.addEventListener('touchstart', (e)=>{
+  touchStartX = e.changedTouches[0].screenX;
+  touchStartY = e.changedTouches[0].screenY;
+}, {passive:true});
+stage.addEventListener('touchend', (e)=>{
+  const dx = touchStartX - e.changedTouches[0].screenX;
+  const dy = touchStartY - e.changedTouches[0].screenY;
+  if(Math.abs(dx) > 36 && Math.abs(dx) > Math.abs(dy)){
+    if(dx > 0) goToSlide(slideIdx+1); else goToSlide(slideIdx-1);
+  }
+}, {passive:true});
 document.getElementById('modalClose').addEventListener('click', ()=>backdrop.classList.remove('open'));
 backdrop.addEventListener('click', (e)=>{ if(e.target===backdrop) backdrop.classList.remove('open'); });
 document.addEventListener('keydown', (e)=>{
@@ -475,10 +460,94 @@ document.addEventListener('keydown', (e)=>{
   if(e.key==='ArrowRight') goToSlide(slideIdx+1);
   if(e.key==='ArrowLeft') goToSlide(slideIdx-1);
 });
-document.getElementById('orderToggle').addEventListener('click', function(){
-  this.classList.toggle('open');
-  document.getElementById('orderBody').classList.toggle('open');
+document.getElementById('orderToggle').addEventListener('click', ()=>{
+  document.getElementById('orderBackdrop').classList.add('open');
+});
+document.getElementById('orderModalClose').addEventListener('click', ()=>{
+  document.getElementById('orderBackdrop').classList.remove('open');
+});
+document.getElementById('orderBackdrop').addEventListener('click', (e)=>{
+  if(e.target.id === 'orderBackdrop') document.getElementById('orderBackdrop').classList.remove('open');
+});
+document.addEventListener('keydown', (e)=>{
+  if(e.key==='Escape') document.getElementById('orderBackdrop').classList.remove('open');
 });
 </script>
+<!-- ORDER INFO MODAL (opens above the product modal, full-size for comfortable reading) -->
+<div class="modal-backdrop" id="orderBackdrop">
+  <div class="order-modal">
+    <button class="modal-close" id="orderModalClose" aria-label="Tutup">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#10140F" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+    <div class="order-modal-body">
+      <div class="eyebrow">PANDUAN PEMESANAN</div>
+      <h2>Cara Order &amp; Alur Pesanan</h2>
+
+      <h4>Cara Order</h4>
+      <ol>
+        <li>Tentukan produk yang ingin di-order (kartu / desain).</li>
+        <li><strong>Etalase koleksi</strong> — bisa pilih desain yang tersedia, atau custom chat admin.</li>
+        <li><strong>Custom desain lainnya</strong> — chat admin untuk request gambar/data (Kartu Sultan, Pokémon, Anime, K-Pop, dll).</li>
+        <li><strong>Desain sendiri</strong> — ukuran 86.6 × 55 mm, 500 DPI. Kirim file PDF / PNG / JPG / TIFF dan konfirmasi ke admin.</li>
+      </ol>
+      <p class="note">Tinggalkan catatan saat checkout agar pesanan dapat diproses dengan benar.</p>
+
+      <h4>Alur Pesanan</h4>
+      <div class="flow">
+        <span>Preview Desain</span><span class="arrow">→</span>
+        <span>ACC / Revisi</span><span class="arrow">→</span>
+        <span>Fix ACC</span><span class="arrow">→</span>
+        <span>Cetak</span><span class="arrow">→</span>
+        <span>Kirim</span>
+      </div>
+
+      <div class="order-grid">
+        <div>
+          <h4>Waktu Proses</h4>
+          <ul>
+            <li>Produksi 1 hari kerja setelah desain Fix ACC.</li>
+            <li>Batas maksimal ACC pukul 11.00 WIB (ACC di atas jam tersebut diproses ke hari kerja berikutnya).</li>
+            <li>Proses mengikuti antrian produksi.</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Pilihan Jenis Kartu</h4>
+          <ul class="pill-list">
+            <li>e-money Mandiri</li><li>Flazz Gen 2 BCA</li><li>BRIZZI BRI</li>
+            <li>TapCash BNI</li><li>PVC</li><li>RFID (Proximity / Mifare)</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Pilihan Finishing</h4>
+          <ul>
+            <li><strong>Doff</strong> — matte</li>
+            <li><strong>Glossy</strong> — mengkilap</li>
+            <li><strong>3D Emboss</strong> — efek timbul untuk nama, logo, atau area tertentu</li>
+            <li><strong>3D Otomatis Basecolor</strong> — efek timbul/tekstur mengikuti warna desain</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Hasil Cetak</h4>
+          <p>Full UV printing, warna tajam, presisi, tidak pakai stiker. Bahan dan tinta UV premium, cocok untuk penggunaan harian sekaligus tampil gaya.</p>
+        </div>
+      </div>
+
+      <h4>Perlu Diperhatikan</h4>
+      <ul>
+        <li>Saldo awal Rp 0,-</li>
+        <li>Untuk Flazz Gen 2 ada chip di depan dan strip magnetik di belakang — desain harus disesuaikan agar tidak mengenai chip dan strip.</li>
+        <li>Semua kartu bisa isi/cek saldo lewat HP dengan NFC.</li>
+        <li>Jika order tanpa chat atau catatan selama sekitar 6 jam setelah checkout, pencetakan bisa dilakukan random sesuai varian yang dipilih.</li>
+        <li>Untuk custom nama tanpa catatan, nama yang dicantumkan akan diambil dari username / label pembeli.</li>
+        <li>Barang PO, dibuat sesuai permintaan — mohon pahami alur agar tidak komplain karena tidak ready stock.</li>
+      </ul>
+
+      <div class="order-callout">
+        Tanpa chat admin &amp; catatan pembeli dalam <strong>1×6 jam</strong> setelah checkout, pesanan akan dicetak random sesuai varian/template yang dipilih.
+      </div>
+    </div>
+  </div>
+</div>
+
 </body>
 </html>
