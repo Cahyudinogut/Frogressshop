@@ -281,20 +281,83 @@
 
   /* GALLERY */
   .gallery-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
-  @media(min-width:720px){.gallery-grid{grid-template-columns:repeat(4,1fr);}}
+  #Finishing .gallery-grid{grid-template-columns:repeat(3,1fr);}
+  #Merch\\ Lainnya .gallery-grid{grid-template-columns:repeat(4,1fr);}
+
   .gal-card{
     aspect-ratio:1.58/1;border-radius:12px;padding:16px;
     display:flex;flex-direction:column;justify-content:space-between;
     color:#fff;font-family:'JetBrains Mono',monospace;font-size:11px;
-    position:relative;overflow:hidden;
+    position:relative;overflow:hidden;cursor:pointer;
+    transition:transform .28s ease,box-shadow .28s ease;
   }
-  .gal-card::after{content:"";position:absolute;inset:0;background:linear-gradient(120deg,rgba(255,255,255,.25),transparent 40%);}
+  .gal-card:hover{
+    transform:scale(1.045);
+    box-shadow:0 18px 35px -15px rgba(16,20,15,.35);
+    z-index:2;
+  }
+  .gal-card::after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(120deg,rgba(255,255,255,.25),transparent 40%);
+    pointer-events:none;
+  }
   .gal-card span{position:relative;z-index:1;}
   .gal-card .gm{font-weight:700;font-size:15px;}
+
+  .gallery-photo{padding:0;background:#eee;}
+  .gallery-photo img{
+    width:100%;height:100%;object-fit:cover;display:block;
+    transition:transform .35s ease;
+  }
+  .gallery-photo:hover img{transform:scale(1.06);}
+  .gallery-label{
+    position:absolute;left:12px;bottom:12px;z-index:3;
+    background:rgba(16,20,15,.72);color:#fff;
+    padding:6px 10px;border-radius:999px;font-size:11px;
+    backdrop-filter:blur(5px);
+  }
+
   .g1{background:linear-gradient(135deg,#0B6B3F,#26A76A);}
   .g2{background:linear-gradient(135deg,#10140F,#3A4B41);}
   .g3{background:linear-gradient(135deg,#1E7C4F,#8FD9AE);}
   .g4{background:linear-gradient(135deg,#0A6B3E,#0E8F52,#D9D3B0);}
+
+  .gallery-lightbox{
+    position:fixed;inset:0;z-index:9999;
+    background:rgba(10,14,11,.88);backdrop-filter:blur(8px);
+    display:none;align-items:center;justify-content:center;
+    padding:24px;opacity:0;transition:opacity .25s ease;
+  }
+  .gallery-lightbox.open{display:flex;opacity:1;}
+  .gallery-lightbox img{
+    max-width:92vw;max-height:88vh;width:auto;height:auto;
+    object-fit:contain;border-radius:12px;
+    box-shadow:0 25px 70px rgba(0,0,0,.45);
+    transform:scale(.92);transition:transform .3s ease;
+    cursor:zoom-in;touch-action:none;user-select:none;
+    -webkit-user-drag:none;
+  }
+  .gallery-lightbox.open img{transform:scale(1);}
+  .gallery-lightbox.zoomed img{cursor:zoom-out;}
+  .gallery-lightbox-close{
+    position:absolute;top:18px;right:20px;width:42px;height:42px;
+    border:0;border-radius:50%;background:rgba(255,255,255,.92);
+    color:#10140F;font-size:25px;line-height:1;cursor:pointer;z-index:3;
+  }
+  .gallery-lightbox-hint{
+    position:absolute;bottom:18px;left:50%;transform:translateX(-50%);
+    color:rgba(255,255,255,.8);font-family:'JetBrains Mono',monospace;
+    font-size:11px;text-align:center;pointer-events:none;
+  }
+
+  @media(max-width:719px){
+    .gallery-grid{grid-template-columns:repeat(2,1fr);gap:12px;}
+    #Finishing .gallery-grid,#Merch\\ Lainnya .gallery-grid{grid-template-columns:repeat(2,1fr);}
+    .gal-card:hover{transform:scale(1.02);}
+    .gallery-lightbox{padding:12px;}
+    .gallery-lightbox img{max-width:96vw;max-height:84vh;}
+    .gallery-lightbox-hint{bottom:12px;font-size:10px;}
+  }
 
   /* PROCESS — genuine sequence, numbering justified */
   .process{background:var(--f-ink);color:#fff;}
@@ -345,6 +408,7 @@
 
   footer{padding:50px 0 30px;border-top:1px solid var(--f-grid);margin-top:40px;}
   .foot-inner{display:flex;flex-wrap:wrap;justify-content:space-between;gap:24px;align-items:center;}
+  .foot-note{flex-basis:100%;width:100%;text-align:center;}
   .foot-links{display:flex;gap:24px;font-size:14px;color:var(--f-muted);}
  .foot-note{
   font-size:12.5px;
@@ -477,11 +541,26 @@ kualitas Produksi dan Kepuasan Customer.
         <p>Sesuaikan dengan Gaya atau kebutuhan kamu.</p>
       </div>
       <div class="gallery-grid" data-reveal>
-        <div class="gal-card g1"><span class="gm">F</span><span>DOFF</span></div>
-        <div class="gal-card g2"><span class="gm">F</span><span>GLOSSY</span></div>
-        <div class="gal-card g3"><span class="gm">F</span><span>3D DOFF</span></div>
-        <div class="gal-card g4"><span class="gm">F</span><span>3D GLOSSY</span></div>
-        <div class="gal-card g4"><span class="gm">F</span><span>3D IMAGE</span></div>
+        <div class="gal-card gallery-photo" data-full="images/finishing-doff.jpg">
+          <img src="images/finishing-doff.jpg" alt="Finishing Doff">
+          <span class="gallery-label">DOFF</span>
+        </div>
+        <div class="gal-card gallery-photo" data-full="images/finishing-glossy.jpg">
+          <img src="images/finishing-glossy.jpg" alt="Finishing Glossy">
+          <span class="gallery-label">GLOSSY</span>
+        </div>
+        <div class="gal-card gallery-photo" data-full="images/finishing-3d-doff.jpg">
+          <img src="images/finishing-3d-doff.jpg" alt="Finishing 3D Doff">
+          <span class="gallery-label">3D DOFF</span>
+        </div>
+        <div class="gal-card gallery-photo" data-full="images/finishing-3d-glossy.jpg">
+          <img src="images/finishing-3d-glossy.jpg" alt="Finishing 3D Glossy">
+          <span class="gallery-label">3D GLOSSY</span>
+        </div>
+        <div class="gal-card gallery-photo" data-full="images/finishing-3d-image.jpg">
+          <img src="images/finishing-3d-image.jpg" alt="Finishing 3D Image">
+          <span class="gallery-label">3D IMAGE</span>
+        </div>
       </div>
     </div>
   </section>
@@ -526,11 +605,23 @@ kualitas Produksi dan Kepuasan Customer.
         <p>Menggunakan Produk Premium dan Cocok untuk Merch atau Hadiah </p>
       </div>
       <div class="gallery-grid" data-reveal>
-        <div class="gal-card g1"><span class="gm">F</span><span>Tumbler</span></div>
-        <div class="gal-card g2"><span class="gm">F</span><span>Cardholder</span></div>
-        <div class="gal-card g3"><span class="gm">F</span><span>Ganci</span></div>
-        <div class="gal-card g4"><span class="gm">F</span><span>Luggage Tag</span></div>
-         </div>
+        <div class="gal-card gallery-photo" data-full="images/tumbler.jpg">
+          <img src="images/tumbler.jpg" alt="Tumbler Custom">
+          <span class="gallery-label">TUMBLER</span>
+        </div>
+        <div class="gal-card gallery-photo" data-full="images/cardholder.jpg">
+          <img src="images/cardholder.jpg" alt="Cardholder Custom">
+          <span class="gallery-label">CARDHOLDER</span>
+        </div>
+        <div class="gal-card gallery-photo" data-full="images/ganci.jpg">
+          <img src="images/ganci.jpg" alt="Ganci Custom">
+          <span class="gallery-label">GANCI</span>
+        </div>
+        <div class="gal-card gallery-photo" data-full="images/luggage-tag.jpg">
+          <img src="images/luggage-tag.jpg" alt="Luggage Tag Custom">
+          <span class="gallery-label">LUGGAGE TAG</span>
+        </div>
+      </div>
     </div>
   </section>
   
@@ -609,6 +700,13 @@ kualitas Produksi dan Kepuasan Customer.
   </div>
 </footer>
 
+<!-- GALLERY LIGHTBOX -->
+<div class="gallery-lightbox" id="galleryLightbox" aria-hidden="true">
+  <button class="gallery-lightbox-close" id="galleryLightboxClose" aria-label="Tutup foto">×</button>
+  <img id="galleryLightboxImage" src="" alt="Preview foto">
+  <div class="gallery-lightbox-hint">Scroll / pinch untuk zoom · Klik di luar untuk tutup</div>
+</div>
+
 <script>
   // reveal on scroll
   const els = document.querySelectorAll('[data-reveal]');
@@ -638,6 +736,87 @@ mobileMenuBtn.addEventListener('click', () => {
   navLinks.classList.toggle('active');
 });
   
+
+  /* GALLERY LIGHTBOX + ZOOM */
+  const galleryPhotos = document.querySelectorAll('.gallery-photo');
+  const galleryLightbox = document.getElementById('galleryLightbox');
+  const galleryLightboxImage = document.getElementById('galleryLightboxImage');
+  const galleryLightboxClose = document.getElementById('galleryLightboxClose');
+
+  let galleryZoom = 1;
+  let galleryStartDistance = 0;
+
+  function closeGalleryLightbox(){
+    galleryLightbox.classList.remove('open','zoomed');
+    galleryLightbox.setAttribute('aria-hidden','true');
+    galleryLightboxImage.src = '';
+    galleryZoom = 1;
+    galleryLightboxImage.style.transform = 'scale(1)';
+    document.body.style.overflow = '';
+  }
+
+  galleryPhotos.forEach(photo => {
+    photo.addEventListener('click', () => {
+      galleryLightboxImage.src = photo.dataset.full;
+      galleryLightboxImage.alt =
+        photo.querySelector('.gallery-label')?.textContent || 'Preview foto';
+      galleryZoom = 1;
+      galleryLightboxImage.style.transform = 'scale(1)';
+      galleryLightbox.classList.add('open');
+      galleryLightbox.classList.remove('zoomed');
+      galleryLightbox.setAttribute('aria-hidden','false');
+      document.body.style.overflow = 'hidden';
+    });
+  });
+
+  galleryLightboxClose.addEventListener('click', closeGalleryLightbox);
+
+  galleryLightbox.addEventListener('click', (e) => {
+    if(e.target === galleryLightbox) closeGalleryLightbox();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if(e.key === 'Escape') closeGalleryLightbox();
+  });
+
+  galleryLightboxImage.addEventListener('wheel', (e) => {
+    e.preventDefault();
+    galleryZoom = Math.min(Math.max(galleryZoom + (e.deltaY < 0 ? .15 : -.15), 1), 4);
+    galleryLightboxImage.style.transform = `scale(${galleryZoom})`;
+    galleryLightbox.classList.toggle('zoomed', galleryZoom > 1);
+  }, {passive:false});
+
+  function getTouchDistance(touches){
+    const dx = touches[0].clientX - touches[1].clientX;
+    const dy = touches[0].clientY - touches[1].clientY;
+    return Math.sqrt(dx * dx + dy * dy);
+  }
+
+  galleryLightboxImage.addEventListener('touchstart', (e) => {
+    if(e.touches.length === 2) galleryStartDistance = getTouchDistance(e.touches);
+  }, {passive:false});
+
+  galleryLightboxImage.addEventListener('touchmove', (e) => {
+    if(e.touches.length === 2){
+      e.preventDefault();
+      const currentDistance = getTouchDistance(e.touches);
+      if(!galleryStartDistance) galleryStartDistance = currentDistance;
+      galleryZoom = Math.min(Math.max(galleryZoom * (currentDistance / galleryStartDistance), 1), 4);
+      galleryStartDistance = currentDistance;
+      galleryLightboxImage.style.transform = `scale(${galleryZoom})`;
+      galleryLightbox.classList.toggle('zoomed', galleryZoom > 1);
+    }
+  }, {passive:false});
+
+  galleryLightboxImage.addEventListener('touchend', () => {
+    galleryStartDistance = 0;
+    if(galleryZoom < 1.05){
+      galleryZoom = 1;
+      galleryLightboxImage.style.transform = 'scale(1)';
+      galleryLightbox.classList.remove('zoomed');
+    }
+  });
+
 </script>
 
 </body>
