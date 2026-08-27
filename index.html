@@ -282,7 +282,7 @@
   /* GALLERY */
   .gallery-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
   #Finishing .gallery-grid{grid-template-columns:repeat(3,1fr);}
-  #Merch\\ Lainnya .gallery-grid{grid-template-columns:repeat(4,1fr);}
+  #Merch\\ Lainnya .gallery-grid{grid-template-columns:repeat(3,1fr);}
 
   .gal-card{
     aspect-ratio:1.58/1;border-radius:12px;padding:16px;
@@ -315,7 +315,12 @@
     background:rgba(16,20,15,.72);color:#fff;
     padding:6px 10px;border-radius:999px;font-size:11px;
     backdrop-filter:blur(5px);
+    max-width:calc(100% - 24px);
+    white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
   }
+
+  /* Merch Lainnya section: image ratio is 4:3, so cards must match to avoid odd cropping */
+  #Merch\\ Lainnya .gal-card{aspect-ratio:4/3;}
 
   .g1{background:linear-gradient(135deg,#0B6B3F,#26A76A);}
   .g2{background:linear-gradient(135deg,#10140F,#3A4B41);}
@@ -370,6 +375,12 @@
     .gallery-lightbox{padding:12px;}
     .gallery-lightbox img{max-width:96vw;max-height:84vh;}
     .gallery-lightbox-hint{bottom:12px;font-size:10px;}
+    .gallery-label{font-size:10px;padding:5px 9px;left:8px;bottom:8px;}
+  }
+
+  @media(max-width:420px){
+    #Merch\\ Lainnya .gallery-grid{grid-template-columns:1fr;gap:12px;}
+    #Merch\\ Lainnya .gal-card{aspect-ratio:4/3;}
   }
 
   /* PROCESS — genuine sequence, numbering justified */
@@ -650,11 +661,11 @@ kualitas Produksi dan Kepuasan Customer.
         </div>
         <div class="gal-card gallery-photo" data-full="images/merch-cardholder.png">
           <img src="images/merch-cardholder.png" alt="Cardholder Custom">
-          <span class="gallery-label">CARDHOLDER</span>
+          <span class="gallery-label">CARD HOLDER</span>
         </div>
-        <div class="gal-card gallery-photo" data-full="images/merhc-ganci.png">
-          <img src="images/merhc-ganci.png" alt="Ganci Custom">
-          <span class="gallery-label">GANCI</span>
+        <div class="gal-card gallery-photo" data-full="images/merch-ganci.png">
+          <img src="images/merch-ganci.png" alt="Gantungan Kunci Custom">
+          <span class="gallery-label">GANTUNGAN KUNCI</span>
         </div>
         <div class="gal-card gallery-photo" data-full="images/merch-luggage.png">
           <img src="images/merch-luggage.png" alt="Luggage Tag Custom">
