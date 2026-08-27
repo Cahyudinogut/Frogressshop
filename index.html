@@ -310,14 +310,15 @@
     transition:transform .35s ease;
   }
   .gallery-photo:hover img{transform:scale(1.06);}
-.gal-card .gallery-label{
-  position:absolute;left:12px;top:12px;z-index:3;
-  background:rgba(16,20,15,.72);color:#fff;
-  padding:6px 10px;border-radius:999px;font-size:11px;
-  backdrop-filter:blur(5px);
-  max-width:calc(100% - 24px);
-  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
-}
+  .gal-card .gallery-label{
+    position:absolute;left:12px;top:12px;z-index:3;
+    background:rgba(16,20,15,.72);color:#fff;
+    padding:6px 10px;border-radius:999px;font-size:11px;
+    backdrop-filter:blur(5px);
+    max-width:calc(100% - 24px);
+    white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+  }
+
   /* Merch Lainnya section: image ratio is 4:3, so cards must match to avoid odd cropping */
   #Merch\\ Lainnya .gal-card{aspect-ratio:4/3;}
 
@@ -653,32 +654,23 @@ kualitas Produksi dan Kepuasan Customer.
         <h2>Merchandise Lainnya yang bisa kamu Custom.</h2>
         <p>Menggunakan Produk Premium dan Cocok untuk Merch atau Hadiah </p>
       </div>
-   
       <div class="gallery-grid" data-reveal>
         <div class="gal-card gallery-photo" data-full="images/merch-tumbler.png">
           <img src="images/merch-tumbler.png" alt="Tumbler Custom">
-         <div class="fin-desc"> <h4>Tumbler & Botol Plastik</h4></div>          
+          <span class="gallery-label">TUMBLER</span>
         </div>
-
-        
         <div class="gal-card gallery-photo" data-full="images/merch-cardholder.png">
           <img src="images/merch-cardholder.png" alt="Cardholder Custom">
-         <div class="fin-desc"> <h4>Cardholder PVC & Kulit</h4></div>          
+          <span class="gallery-label">CARD HOLDER</span>
         </div>
-
-        
         <div class="gal-card gallery-photo" data-full="images/merch-ganci.png">
           <img src="images/merch-ganci.png" alt="Gantungan Kunci Custom">
-         <div class="fin-desc"> <h4>Ganci Kartu</h4></div>          
+          <span class="gallery-label">GANTUNGAN KUNCI</span>
         </div>
-
-        
         <div class="gal-card gallery-photo" data-full="images/merch-luggage.png">
           <img src="images/merch-luggage.png" alt="Luggage Tag Custom">
-         <div class="fin-desc"> <h4>Kartu Luggage</h4></div>          
-      </div>
-
-        
+          <span class="gallery-label">LUGGAGE TAG</span>
+        </div>
       </div>
     </div>
   </section>
