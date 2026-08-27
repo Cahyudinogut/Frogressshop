@@ -322,6 +322,19 @@
   .g3{background:linear-gradient(135deg,#1E7C4F,#8FD9AE);}
   .g4{background:linear-gradient(135deg,#0A6B3E,#0E8F52,#D9D3B0);}
 
+  /* Finishing section: 3:4 image box + description below */
+  #Finishing .gallery-grid{align-items:start;}
+  #Finishing .fin-card{display:flex;flex-direction:column;}
+  #Finishing .gal-card{aspect-ratio:3/4;}
+  #Finishing .fin-desc{padding-top:14px;}
+  #Finishing .fin-desc h4{font-size:16px;font-weight:600;margin-bottom:6px;font-family:'Inter',sans-serif;color:var(--f-ink);}
+  #Finishing .fin-desc p{font-size:13.5px;color:var(--f-muted);line-height:1.55;}
+  #Finishing .fin-desc .fin-note{margin-top:8px;font-size:12.5px;color:var(--f-muted);font-style:italic;}
+  @media(max-width:640px){
+    #Finishing .fin-desc h4{font-size:15px;}
+    #Finishing .fin-desc p{font-size:13px;}
+  }
+
   .gallery-lightbox{
     position:fixed;inset:0;z-index:9999;
     background:rgba(10,14,11,.88);backdrop-filter:blur(8px);
@@ -541,25 +554,56 @@ kualitas Produksi dan Kepuasan Customer.
         <p>Sesuaikan dengan Gaya atau kebutuhan kamu.</p>
       </div>
       <div class="gallery-grid" data-reveal>
-        <div class="gal-card gallery-photo" data-full="images/finishing-doff.jpg">
-          <img src="images/finishing-doff.jpg" alt="Finishing Doff">
-          <span class="gallery-label">DOFF</span>
+        <div class="fin-card">
+          <div class="gal-card gallery-photo" data-full="images/doff.png">
+            <img src="images/doff.png" alt="Finishing Doff">
+            <span class="gallery-label">DOFF</span>
+          </div>
+          <div class="fin-desc">
+            <h4>Doff</h4>
+            <p>Hasil cetak Full Matte atau tidak memantulkan cahaya, lebih awet untuk penggunaan sehari-hari.</p>
+          </div>
         </div>
-        <div class="gal-card gallery-photo" data-full="images/finishing-glossy.jpg">
-          <img src="images/finishing-glossy.jpg" alt="Finishing Glossy">
-          <span class="gallery-label">GLOSSY</span>
+        <div class="fin-card">
+          <div class="gal-card gallery-photo" data-full="images/glossy.png">
+            <img src="images/glossy.png" alt="Finishing Glossy">
+            <span class="gallery-label">GLOSSY</span>
+          </div>
+          <div class="fin-desc">
+            <h4>Glossy</h4>
+            <p>Hasil cetak Glossy atau mengkilap seluruh muka kartu, menghasilkan tampilan yang mewah dan elegan.</p>
+            <p class="fin-note">*Untuk Glossy rawan kotor seperti bekas tangan karena lapisan glossynya. Cocok untuk koleksi lebih mewah.</p>
+          </div>
         </div>
-        <div class="gal-card gallery-photo" data-full="images/finishing-3d-doff.jpg">
-          <img src="images/finishing-3d-doff.jpg" alt="Finishing 3D Doff">
-          <span class="gallery-label">3D DOFF</span>
+        <div class="fin-card">
+          <div class="gal-card gallery-photo" data-full="images/3d-doff.png">
+            <img src="images/3d-doff.png" alt="Finishing 3D Doff">
+            <span class="gallery-label">3D DOFF</span>
+          </div>
+          <div class="fin-desc">
+            <h4>3D Doff</h4>
+            <p>Hasil cetak Full Matte dan ada objek/area timbul sesuai permintaan (custom), menghasilkan kartu eksklusif, berkarakter, dan tahan lama.</p>
+          </div>
         </div>
-        <div class="gal-card gallery-photo" data-full="images/finishing-3d-glossy.jpg">
-          <img src="images/finishing-3d-glossy.jpg" alt="Finishing 3D Glossy">
-          <span class="gallery-label">3D GLOSSY</span>
+        <div class="fin-card">
+          <div class="gal-card gallery-photo" data-full="images/3d-glossy.png">
+            <img src="images/3d-glossy.png" alt="Finishing 3D Glossy">
+            <span class="gallery-label">3D GLOSSY</span>
+          </div>
+          <div class="fin-desc">
+            <h4>3D Glossy</h4>
+            <p>Hasil cetak Glossy seluruh muka kartu dan ada objek/area timbul sesuai permintaan (custom), menghasilkan kartu yang mewah, elegan, dan premium.</p>
+          </div>
         </div>
-        <div class="gal-card gallery-photo" data-full="images/finishing-3d-image.jpg">
-          <img src="images/finishing-3d-image.jpg" alt="Finishing 3D Image">
-          <span class="gallery-label">3D IMAGE</span>
+        <div class="fin-card">
+          <div class="gal-card gallery-photo" data-full="images/3d-image.png">
+            <img src="images/3d-image.png" alt="Finishing 3D Image">
+            <span class="gallery-label">3D IMAGE</span>
+          </div>
+          <div class="fin-desc">
+            <h4>3D Image</h4>
+            <p>Hasil cetak dengan efek timbul 3 dimensi yang otomatis mengikuti detail warna atau tinta gambar. Memberikan tampilan yang lebih hidup, realistis, unik, dan tahan lama.</p>
+          </div>
         </div>
       </div>
     </div>
