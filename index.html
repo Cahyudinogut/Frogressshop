@@ -310,15 +310,14 @@
     transition:transform .35s ease;
   }
   .gallery-photo:hover img{transform:scale(1.06);}
-  .gallery-label{
-    position:absolute;left:12px;bottom:12px;z-index:3;
-    background:rgba(16,20,15,.72);color:#fff;
-    padding:6px 10px;border-radius:999px;font-size:11px;
-    backdrop-filter:blur(5px);
-    max-width:calc(100% - 24px);
-    white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
-  }
-
+.gal-card .gallery-label{
+  position:absolute;left:12px;top:12px;z-index:3;
+  background:rgba(16,20,15,.72);color:#fff;
+  padding:6px 10px;border-radius:999px;font-size:11px;
+  backdrop-filter:blur(5px);
+  max-width:calc(100% - 24px);
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
   /* Merch Lainnya section: image ratio is 4:3, so cards must match to avoid odd cropping */
   #Merch\\ Lainnya .gal-card{aspect-ratio:4/3;}
 
@@ -375,7 +374,7 @@
     .gallery-lightbox{padding:12px;}
     .gallery-lightbox img{max-width:96vw;max-height:84vh;}
     .gallery-lightbox-hint{bottom:12px;font-size:10px;}
-    .gallery-label{font-size:10px;padding:5px 9px;left:8px;bottom:8px;}
+    .gal-card .gallery-label{font-size:10px;padding:5px 9px;left:8px;top:8px;}
   }
 
   @media(max-width:420px){
