@@ -504,6 +504,7 @@
       <p class="desc-short" id="modalDesc"></p>
       <div class="modal-cta">
         <a href="https://wa.me/6280000000000" class="btn btn-primary" id="modalWA">Pesan via WhatsApp</a>
+        <a href="#" target="_blank" rel="noopener" class="btn" id="modalPreview" style="display:none;background:var(--f-mint);color:var(--f-green-dark);border:1px solid var(--f-green-light);">Lihat Preview</a>
       </div>
       <button class="order-toggle" id="orderToggle">
         Lihat cara order &amp; alur pesanan
@@ -635,6 +636,8 @@ const products = [
     tag: "KOLEKSI · Undangan Digital Web",
     title: "Undangan Pernikahan Aqiqah Digital Web Online",
     desc: "Jasa Undangan Web Digital (Pernikahan & Aqiqah). Banyak pilihan tema elegan dan kekinian! Cek semua koleksi desain kami sekarang.",
+    hideOrderCta: true,
+    previewUrl: "https://frogress.webundangandigital.com/",
     slides: [
       {type:'img', src:'images/Undangan-web-1.png'},
       {type:'img', src:'images/Undangan-web-2.png'},
@@ -897,6 +900,17 @@ function openModal(i){
   document.getElementById('modalTitle').textContent = p.title;
   document.getElementById('modalDesc').textContent = p.desc;
   document.getElementById('modalWA').href = `https://wa.me/6280000000000?text=${encodeURIComponent('Halo Frogress Shop, saya mau pesan: ' + p.title)}`;
+
+  const orderToggleBtn = document.getElementById('orderToggle');
+  orderToggleBtn.style.display = p.hideOrderCta ? 'none' : '';
+
+  const previewBtn = document.getElementById('modalPreview');
+  if(p.previewUrl){
+    previewBtn.href = p.previewUrl;
+    previewBtn.style.display = '';
+  } else {
+    previewBtn.style.display = 'none';
+  }
 
   stage.querySelectorAll('.slide').forEach(s=>s.remove());
   dotsWrap.innerHTML = '';
