@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ulasan & Hasil Cetak Real — Frogress Shop</title>
+<meta name="description" content="Kumpulan video ulasan dan hasil cetak real emoney custom UV print dari Frogress Shop, langsung dari TikTok dan Instagram.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --f-green:#0E8F52;
+    --f-green-dark:#0A6B3E;
+    --f-green-light:#3FB37B;
+    --f-ink:#10140F;
+    --f-paper:#FFFFFF;
+    --f-grid:#E4EAE5;
+    --f-mint:#EEF8F1;
+    --f-muted:#5B6660;
+    --radius:14px;
+    --maxw:1180px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Inter',sans-serif;
+    color:var(--f-ink);
+    background:var(--f-paper);
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  .mono{font-family:'JetBrains Mono',monospace;}
+  h1,h2,h3,.display{font-family:'Space Grotesk',sans-serif;letter-spacing:-0.02em;}
+  a{color:inherit;text-decoration:none;}
+  img,svg{display:block;max-width:100%;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px;}
+
+  /* grid background pattern — kotak-kotak putih */
+  .grid-bg{
+    background-image:
+      linear-gradient(var(--f-grid) 1px, transparent 1px),
+      linear-gradient(90deg, var(--f-grid) 1px, transparent 1px);
+    background-size:40px 40px;
+    background-position:center top;
+  }
+
+  /* NAV */
+  header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(255,255,255,.85);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--f-grid);
+  }
+  nav{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:16px 24px;max-width:var(--maxw);margin:0 auto;
+  }
+
+  
+   .logo{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-weight:700;
+  font-size:18px;
+  white-space:nowrap;
+}
+
+.logo-mark{
+  width:34px;
+  height:34px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-shrink:0;
+  background:transparent;
+  border:none;
+  box-shadow:none;
+  border-radius:0;
+  overflow:hidden;
+}
+
+.logo-mark img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+}
+
+
+
+
+
+  
+  .logo-mark{
+  width:34px;
+  height:34px;
+  border-radius:9px;
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  justify-content:left;
+
+}
+
+  
+  .nav-links{display:flex;gap:32px;font-size:14.5px;font-weight:500;color:var(--f-muted);}
+  .nav-links a:hover{color:var(--f-ink);}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:11px 20px;border-radius:999px;
+    font-weight:600;font-size:14.5px;
+    background:var(--f-ink);color:#fff;
+    transition:transform .15s ease, box-shadow .15s ease;
+    border:none;cursor:pointer;
+  }
+  .btn:hover{transform:translateY(-2px);}
+  .btn-primary{background:var(--f-green);}
+  .btn-primary:hover{box-shadow:0 6px 18px rgba(14,143,82,.35);}
+ 
+  
+.nav-cta{display:none;}
+
+@media(min-width:860px){
+  .nav-cta{
+    display:inline-flex;
+  }
+}
+
+/* MOBILE MENU */
+.mobile-menu-btn{
+  display:none;
+  border:none;
+  background:transparent;
+  font-size:28px;
+  cursor:pointer;
+  color:var(--f-ink);
+  padding:4px 8px;
+}
+
+@media(max-width:859px){
+
+  .nav-links{
+    display:none;
+    position:absolute;
+    top:100%;
+    left:0;
+    right:0;
+    background:#fff;
+    border-bottom:1px solid var(--f-grid);
+    padding:12px 24px;
+    flex-direction:column;
+    gap:0;
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+  }
+
+  .nav-links.active{
+    display:flex;
+  }
+
+  .nav-links a{
+    padding:14px 0;
+    border-bottom:1px solid var(--f-grid);
+  }
+
+  .nav-links a:last-child{
+    border-bottom:none;
+  }
+
+  .mobile-menu-btn{
+    display:block;
+  }
+}
+
+  /* HERO */
+  .hero{
+    padding:88px 0 110px;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero-inner{
+    display:grid;grid-template-columns:1fr;gap:56px;align-items:center;
+    max-width:var(--maxw);margin:0 auto;padding:0 24px;
+  }
+  @media(min-width:960px){.hero-inner{grid-template-columns:1.05fr .95fr;}}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:8px;
+    font-family:'JetBrains Mono',monospace;font-size:12.5px;
+    color:var(--f-green-dark);background:var(--f-mint);
+    padding:6px 12px;border-radius:999px;margin-bottom:22px;
+    border:1px solid #D3EEDC;
+  }
+  .eyebrow::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--f-green);}
+  h1.display{
+    font-size:clamp(36px,5.2vw,58px);
+    font-weight:700;line-height:1.04;margin-bottom:22px;
+  }
+  h1.display em{font-style:normal;color:var(--f-green);}
+  .hero p.sub{
+    font-size:17.5px;color:var(--f-muted);max-width:480px;margin-bottom:32px;
+  }
+  .hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:36px;}
+  .btn-outline{
+    background:transparent;color:var(--f-ink);border:1.5px solid var(--f-grid);
+  }
+  .btn-outline:hover{border-color:var(--f-ink);}
+  .hero-stats{display:flex;gap:32px;flex-wrap:wrap;}
+  .hero-stats div{font-family:'JetBrains Mono',monospace;}
+  .hero-stats .num{font-size:20px;font-weight:600;color:var(--f-ink);}
+  .hero-stats .lbl{font-size:12.5px;color:var(--f-muted);}
+
+  /* CARD MOCKUP — signature element */
+  .card-stage{
+    position:relative;
+    display:flex;align-items:center;justify-content:center;
+    min-height:340px;
+  }
+  .emoney-card{
+    width:340px;height:214px;
+    border-radius:18px;
+    background:linear-gradient(135deg,#0B6B3F 0%,#0E8F52 45%,#26A76A 100%);
+    position:relative;
+    box-shadow:0 30px 60px -20px rgba(10,60,35,.45), 0 10px 20px -10px rgba(10,60,35,.3);
+    color:#fff;
+    padding:22px 24px;
+    transform:rotate(-6deg);
+    transition:transform .35s ease;
+    overflow:hidden;
+  }
+  .card-stage:hover .emoney-card{transform:rotate(-2deg) scale(1.02);}
+  .emoney-card::after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(115deg, rgba(255,255,255,.28) 0%, rgba(255,255,255,0) 30%, rgba(255,255,255,0) 70%, rgba(255,255,255,.12) 100%);
+    pointer-events:none;
+  }
+  .card-top{display:flex;justify-content:space-between;align-items:flex-start;position:relative;z-index:1;}
+  .card-chip{width:38px;height:29px;border-radius:6px;background:linear-gradient(135deg,#E9D98A,#C9A94B);}
+  .card-brand{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:14px;letter-spacing:.02em;}
+  .card-mark{
+    width:26px;height:26px;border-radius:7px;background:rgba(255,255,255,.18);
+    display:flex;align-items:center;justify-content:center;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:14px;
+  }
+  .card-number{
+    font-family:'JetBrains Mono',monospace;font-size:16px;letter-spacing:.08em;
+    margin-top:34px;position:relative;z-index:1;opacity:.95;
+  }
+  .card-bottom{display:flex;justify-content:space-between;align-items:flex-end;margin-top:16px;position:relative;z-index:1;}
+  .card-name{font-size:11px;letter-spacing:.08em;opacity:.85;text-transform:uppercase;}
+  .card-uv{
+    font-family:'JetBrains Mono',monospace;font-size:10px;
+    background:rgba(255,255,255,.16);padding:4px 8px;border-radius:6px;letter-spacing:.04em;
+  }
+  .card-back-deco{
+    position:absolute;width:340px;height:214px;border-radius:18px;
+    background:var(--f-mint);border:1.5px solid #D3EEDC;
+    top:26px;left:26px;z-index:-1;
+  }
+
+  /* SECTION shared */
+  section{padding:90px 0;}
+  .section-head{max-width:560px;margin-bottom:52px;}
+  .section-head .eyebrow{margin-bottom:16px;}
+  .section-head h2{font-size:clamp(26px,3.4vw,36px);font-weight:700;margin-bottom:12px;}
+  .section-head p{color:var(--f-muted);font-size:16px;}
+
+  /* FEATURES */
+  .features{background:var(--f-mint);}
+  .feat-grid{display:grid;grid-template-columns:1fr;gap:20px;}
+  @media(min-width:720px){.feat-grid{grid-template-columns:repeat(3,1fr);}}
+  .feat-card{
+    background:#fff;border:1px solid #D3EEDC;border-radius:var(--radius);
+    padding:26px 24px;
+  }
+  .feat-icon{
+    width:42px;height:42px;border-radius:10px;background:var(--f-ink);
+    display:flex;align-items:center;justify-content:center;margin-bottom:18px;
+  }
+  .feat-icon svg{width:20px;height:20px;stroke:var(--f-green-light);}
+  .feat-card h3{font-size:17px;font-weight:600;margin-bottom:8px;font-family:'Inter',sans-serif;letter-spacing:0;}
+  .feat-card p{font-size:14.5px;color:var(--f-muted);}
+
+  /* GALLERY */
+  .gallery-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
+  #Finishing .gallery-grid{grid-template-columns:repeat(3,1fr);}
+  #Merch\\ Lainnya .gallery-grid{grid-template-columns:repeat(4,1fr);}
+
+  .gal-card{
+    aspect-ratio:1.58/1;border-radius:12px;padding:16px;
+    display:flex;flex-direction:column;justify-content:space-between;
+    color:#fff;font-family:'JetBrains Mono',monospace;font-size:11px;
+    position:relative;overflow:hidden;cursor:pointer;
+    transition:transform .28s ease,box-shadow .28s ease;
+  }
+  .gal-card:hover{
+    transform:scale(1.045);
+    box-shadow:0 18px 35px -15px rgba(16,20,15,.35);
+    z-index:2;
+  }
+  .gal-card::after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(120deg,rgba(255,255,255,.25),transparent 40%);
+    pointer-events:none;
+  }
+  .gal-card span{position:relative;z-index:1;}
+  .gal-card .gm{font-weight:700;font-size:15px;}
+
+  .gallery-photo{padding:0;background:#eee;}
+  .gallery-photo img{
+    width:100%;height:100%;object-fit:cover;display:block;
+    transition:transform .35s ease;
+  }
+  .gallery-photo:hover img{transform:scale(1.06);}
+  .gallery-label{
+    position:absolute;left:12px;bottom:12px;z-index:3;
+    background:rgba(16,20,15,.72);color:#fff;
+    padding:6px 10px;border-radius:999px;font-size:11px;
+    backdrop-filter:blur(5px);
+  }
+
+  .g1{background:linear-gradient(135deg,#0B6B3F,#26A76A);}
+  .g2{background:linear-gradient(135deg,#10140F,#3A4B41);}
+  .g3{background:linear-gradient(135deg,#1E7C4F,#8FD9AE);}
+  .g4{background:linear-gradient(135deg,#0A6B3E,#0E8F52,#D9D3B0);}
+
+  /* Finishing section: 3:4 image box + description below */
+  #Finishing .gallery-grid{align-items:start;}
+  #Finishing .fin-card{display:flex;flex-direction:column;}
+  #Finishing .gal-card{aspect-ratio:3/4;}
+  #Finishing .fin-desc{padding-top:14px;}
+  #Finishing .fin-desc h4{font-size:16px;font-weight:600;margin-bottom:6px;font-family:'Inter',sans-serif;color:var(--f-ink);}
+  #Finishing .fin-desc p{font-size:13.5px;color:var(--f-muted);line-height:1.55;}
+  #Finishing .fin-desc .fin-note{margin-top:8px;font-size:12.5px;color:var(--f-muted);font-style:italic;}
+  @media(max-width:640px){
+    #Finishing .fin-desc h4{font-size:15px;}
+    #Finishing .fin-desc p{font-size:13px;}
+  }
+
+  .gallery-lightbox{
+    position:fixed;inset:0;z-index:9999;
+    background:rgba(10,14,11,.88);backdrop-filter:blur(8px);
+    display:none;align-items:center;justify-content:center;
+    padding:24px;opacity:0;transition:opacity .25s ease;
+  }
+  .gallery-lightbox.open{display:flex;opacity:1;}
+  .gallery-lightbox img{
+    max-width:92vw;max-height:88vh;width:auto;height:auto;
+    object-fit:contain;border-radius:12px;
+    box-shadow:0 25px 70px rgba(0,0,0,.45);
+    transform:scale(.92);transition:transform .3s ease;
+    cursor:zoom-in;touch-action:none;user-select:none;
+    -webkit-user-drag:none;
+  }
+  .gallery-lightbox.open img{transform:scale(1);}
+  .gallery-lightbox.zoomed img{cursor:zoom-out;}
+  .gallery-lightbox-close{
+    position:absolute;top:18px;right:20px;width:42px;height:42px;
+    border:0;border-radius:50%;background:rgba(255,255,255,.92);
+    color:#10140F;font-size:25px;line-height:1;cursor:pointer;z-index:3;
+  }
+  .gallery-lightbox-hint{
+    position:absolute;bottom:18px;left:50%;transform:translateX(-50%);
+    color:rgba(255,255,255,.8);font-family:'JetBrains Mono',monospace;
+    font-size:11px;text-align:center;pointer-events:none;
+  }
+
+  @media(max-width:719px){
+    .gallery-grid{grid-template-columns:repeat(2,1fr);gap:12px;}
+    #Finishing .gallery-grid,#Merch\\ Lainnya .gallery-grid{grid-template-columns:repeat(2,1fr);}
+    .gal-card:hover{transform:scale(1.02);}
+    .gallery-lightbox{padding:12px;}
+    .gallery-lightbox img{max-width:96vw;max-height:84vh;}
+    .gallery-lightbox-hint{bottom:12px;font-size:10px;}
+  }
+
+  /* PROCESS — genuine sequence, numbering justified */
+  .process{background:var(--f-ink);color:#fff;}
+  .process .section-head p{color:#A9B4AD;}
+  .process .eyebrow{background:rgba(255,255,255,.08);color:#7FD8A6;border-color:rgba(255,255,255,.12);}
+  .steps{display:grid;grid-template-columns:1fr;gap:0;border-top:1px solid rgba(255,255,255,.12);}
+  .step{
+    display:grid;grid-template-columns:64px 1fr;gap:20px;
+    padding:26px 0;border-bottom:1px solid rgba(255,255,255,.12);
+    align-items:start;
+  }
+  @media(min-width:640px){.step{grid-template-columns:80px 1fr 240px;}}
+  .step-num{font-family:'JetBrains Mono',monospace;color:var(--f-green-light);font-size:15px;}
+  .step h3{font-size:18px;font-weight:600;margin-bottom:6px;font-family:'Inter',sans-serif;}
+  .step p{color:#A9B4AD;font-size:14.5px;max-width:440px;}
+  .step-meta{font-family:'JetBrains Mono',monospace;font-size:12.5px;color:#728279;justify-self:start;}
+  @media(min-width:640px){.step-meta{justify-self:end;text-align:right;}}
+
+  /* PRICING */
+  .price-grid{display:grid;grid-template-columns:1fr;gap:18px;}
+  @media(min-width:780px){.price-grid{grid-template-columns:repeat(3,1fr);}}
+  .price-card{
+    border:1.5px solid var(--f-grid);border-radius:var(--radius);padding:30px 26px;
+    display:flex;flex-direction:column;gap:18px;
+  }
+  .price-card.hot{border-color:var(--f-green);background:var(--f-mint);position:relative;}
+  .price-tag{
+    position:absolute;top:-13px;right:24px;background:var(--f-green);color:#fff;
+    font-family:'JetBrains Mono',monospace;font-size:11px;padding:5px 10px;border-radius:999px;
+  }
+  .price-card h3{font-size:16px;font-weight:600;}
+  .price-amt{font-family:'Space Grotesk',sans-serif;font-size:32px;font-weight:700;}
+  .price-amt span{font-family:'Inter',sans-serif;font-size:13px;font-weight:500;color:var(--f-muted);}
+  .price-list{list-style:none;font-size:14px;color:var(--f-muted);display:flex;flex-direction:column;gap:10px;}
+  .price-list li{display:flex;gap:8px;}
+  .price-list li::before{content:"✓";color:var(--f-green);font-weight:700;}
+
+  /* CTA */
+  .cta{
+    background:linear-gradient(135deg,#0A6B3E,#0E8F52);
+    color:#fff;border-radius:24px;
+    padding:64px 40px;text-align:center;
+    margin:0 24px;max-width:calc(var(--maxw) - 48px);margin:0 auto;
+  }
+  .cta h2{font-size:clamp(26px,4vw,38px);margin-bottom:14px;}
+  .cta p{color:#D6F0E1;margin-bottom:30px;font-size:16px;}
+  .cta .btn{background:#fff;color:var(--f-green-dark);}
+
+  footer{padding:50px 0 30px;border-top:1px solid var(--f-grid);margin-top:40px;}
+  .foot-inner{display:flex;flex-wrap:wrap;justify-content:space-between;gap:24px;align-items:center;}
+  .foot-note{flex-basis:100%;width:100%;text-align:center;}
+  .foot-links{display:flex;gap:24px;font-size:14px;color:var(--f-muted);}
+ .foot-note{
+  font-size:12.5px;
+  color:var(--f-muted);
+  font-family:'JetBrains Mono',monospace;
+  width:100%;
+  flex-basis:100%;
+  text-align:center;
+}
+
+  [data-reveal]{opacity:0;transform:translateY(16px);transition:opacity .6s ease, transform .6s ease;}
+  [data-reveal].in{opacity:1;transform:translateY(0);}
+
+  /* ULASAN / VIDEO PAGE */
+  .ulasan-hero{padding:56px 0 20px;}
+  .cat-block{margin-bottom:56px;}
+  .cat-block:last-child{margin-bottom:0;}
+  .cat-head{margin-bottom:24px;}
+  .cat-head h3{font-size:19px;font-weight:700;font-family:'Space Grotesk',sans-serif;}
+  .cat-head .count{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--f-muted);margin-left:8px;}
+
+  .video-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  @media(max-width:940px){.video-grid{grid-template-columns:repeat(2,1fr);}}
+  @media(max-width:560px){.video-grid{grid-template-columns:1fr;gap:16px;}}
+
+  .video-card{
+    border:1px solid var(--f-grid);border-radius:var(--radius);
+    background:#fff;display:flex;flex-direction:column;overflow:hidden;
+  }
+  .video-card .vc-embed{
+    background:#F4F6F4;display:flex;align-items:center;justify-content:center;
+    min-height:300px;overflow:hidden;
+  }
+  .video-card .vc-embed > blockquote{width:100% !important;margin:0 !important;border:0 !important;box-shadow:none !important;}
+  .video-card .vc-info{padding:16px 18px 18px;}
+  .vc-platform{
+    display:inline-flex;align-items:center;gap:6px;
+    font-family:'JetBrains Mono',monospace;font-size:10.5px;font-weight:600;
+    padding:4px 10px;border-radius:999px;margin-bottom:10px;letter-spacing:.03em;
+  }
+  .vc-platform.ig{background:linear-gradient(135deg,#f58529,#dd2a7b,#8134af);color:#fff;}
+  .vc-platform.tiktok{background:var(--f-ink);color:#fff;}
+  .video-card h4{font-size:14.5px;font-weight:600;margin-bottom:10px;line-height:1.4;font-family:'Inter',sans-serif;}
+  .vc-link{
+    font-size:13px;color:var(--f-green-dark);font-weight:600;
+    display:inline-flex;align-items:center;gap:5px;
+  }
+  .vc-link svg{width:13px;height:13px;stroke:var(--f-green-dark);}
+  .vc-link:hover{text-decoration:underline;}
+
+  /* WhatsApp floating button */
+  .wa-float{
+    position:fixed;right:20px;bottom:20px;z-index:80;
+    width:58px;height:58px;border-radius:50%;
+    background:#25D366;color:#fff;
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 8px 24px rgba(37,211,102,.45);
+    transition:transform .18s ease, box-shadow .18s ease;
+  }
+  .wa-float:hover{transform:translateY(-3px) scale(1.05);box-shadow:0 12px 30px rgba(37,211,102,.55);}
+  @media(max-width:520px){ .wa-float{width:52px;height:52px;right:16px;bottom:16px;} }
+</style>
+ 
+ <link rel="icon" type="image/x-icon" href="images/favfrogress.ico">
+ 
+</head>
+<body>
+
+<header>
+<nav>
+  <div class="logo">
+    <div class="logo-mark">
+      <img src="images/favfrogress.ico" alt="Frogress Shop">
+    </div>
+    <a href="index.html">Frogress Shop</a>
+  </div>
+
+  <div class="nav-links" id="navLinks">
+    <a href="produk.html">Produk</a>
+    <a href="index.html#Finishing">Finishing</a>
+    <a href="index.html#Merch Lainnya">Merch Lainnya</a>
+    <a href="ulasan.html">Ulasan</a>
+    <a href="index.html#proses">Proses</a>
+    <a href="index.html#harga">Harga</a>
+  </div>
+
+  <a href="#pesan" class="btn btn-primary nav-cta">Pesan Sekarang</a>
+
+  <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Buka menu">
+    ☰
+  </button>
+</nav>
+</header>
+
+<main>
+
+  <section class="ulasan-hero grid-bg">
+    <div class="wrap">
+      <div class="section-head" data-reveal>
+        <div class="eyebrow">ULASAN &amp; HASIL CETAK REAL</div>
+        <h2>Video hasil cetak asli, langsung dari TikTok &amp; Instagram.</h2>
+        <p>Semua video bisa diputar langsung di halaman ini, atau klik "Lihat di TikTok/Instagram" untuk nonton di aplikasi aslinya.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="video-list">
+    <div class="wrap">
+
+      <!-- BCA PRIO -->
+      <div class="cat-block" data-reveal>
+        <div class="cat-head"><h3>BCA Prio<span class="count">3 video</span></h3></div>
+        <div class="video-grid">
+
+          <div class="video-card">
+            <div class="vc-embed">
+              <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/Cwc5AlAg__A/" data-instgrm-version="14" style="margin:0;max-width:540px;min-width:280px;width:100%;"></blockquote>
+            </div>
+            <div class="vc-info">
+              <span class="vc-platform ig">INSTAGRAM</span>
+              <h4>Tanpa Lis 3D Doff — Mastercard Ada Text</h4>
+              <a class="vc-link" href="https://www.instagram.com/p/Cwc5AlAg__A/" target="_blank" rel="noopener">Lihat di Instagram
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="video-card">
+            <div class="vc-embed">
+              <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/C4RGeRTIwM6/" data-instgrm-version="14" style="margin:0;max-width:540px;min-width:280px;width:100%;"></blockquote>
+            </div>
+            <div class="vc-info">
+              <span class="vc-platform ig">INSTAGRAM</span>
+              <h4>3D Doff Lis Abu — Mastercard Ada Text</h4>
+              <a class="vc-link" href="https://www.instagram.com/p/C4RGeRTIwM6/" target="_blank" rel="noopener">Lihat di Instagram
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="video-card">
+            <div class="vc-embed">
+              <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/CySV3nnIleb/" data-instgrm-version="14" style="margin:0;max-width:540px;min-width:280px;width:100%;"></blockquote>
+            </div>
+            <div class="vc-info">
+              <span class="vc-platform ig">INSTAGRAM</span>
+              <h4>Amex Doff — Belakang Custom Nama</h4>
+              <a class="vc-link" href="https://www.instagram.com/p/CySV3nnIleb/" target="_blank" rel="noopener">Lihat di Instagram
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- POKEMON -->
+      <div class="cat-block" data-reveal>
+        <div class="cat-head"><h3>Pokemon<span class="count">11 video</span></h3></div>
+        <div class="video-grid">
+
+          <div class="video-card">
+            <div class="vc-embed">
+              <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/C4-ZuQshA0W/" data-instgrm-version="14" style="margin:0;max-width:540px;min-width:280px;width:100%;"></blockquote>
+            </div>
+            <div class="vc-info">
+              <span class="vc-platform ig">INSTAGRAM</span>
+              <h4>Rayquaza Glossy</h4>
+              <a class="vc-link" href="https://www.instagram.com/p/C4-ZuQshA0W/" target="_blank" rel="noopener">Lihat di Instagram
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="video-card">
+            <div class="vc-embed">
+              <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@desainerpercetakan/video/7675985566969629959" data-video-id="7675985566969629959" style="max-width:100%;min-width:280px;width:100%;"><section></section></blockquote>
+            </div>
+            <div class="vc-info">
+              <span class="vc-platform tiktok">TIKTOK</span>
+              <h4>Rayquaza Japan — 3D Glossy</h4>
+              <a class="vc-link" href="https://www.tiktok.com/@desainerpercetakan/video/7675985566969629959" target="_blank" rel="noopener">Lihat di TikTok
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="video-card">
+            <div class="vc-embed">
+              <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/C3xlVsyhs9w/" data-instgrm-version="14" style="margin:0;max-width:540px;min-width:280px;width:100%;"></blockquote>
+            </div>
+            <div class="vc-info">
+              <span class="vc-platform ig">INSTAGRAM</span>
+              <h4>Charizard Doff</h4>
+              <a class="vc-link" href="https://www.instagram.com/p/C3xlVsyhs9w/" target="_blank" rel="noopener">Lihat di Instagram
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="video-card">
+            <div class="vc-embed">
+              <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/C113Y7khUic/" data-instgrm-version="14" style="margin:0;max-width:540px;min-width:280px;width:100%;"></blockquote>
+            </div>
+            <div class="vc-info">
+              <span class="vc-platform ig">INSTAGRAM</span>
+              <h4>Charizard EX Wild Blaze</h4>
+              <a class="vc-link" href="https://www.instagram.com/p/C113Y7khUic/" target="_blank" rel="noopener">Lihat di Instagram
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="video-card">
+            <div class="vc-embed">
+              <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@desainerpercetakan/video/7657353144967417096" data-video-id="7657353144967417096" style="max-width:100%;min-width:280px;width:100%;"><section></section></blockquote>
+            </div>
+            <div class="vc-info">
+              <span class="vc-platform tiktok">TIKTOK</span>
+              <h4>Pikachu Zekrom GX Full Blitz 3D Glossy Flazz</h4>
+              <a class="vc-link" href="https://www.tiktok.com/@desainerpercetakan/video/7657353144967417096" target="_blank" rel="noopener">Lihat di TikTok
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="video-card">
+            <div class="vc-embed">
+              <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@desainerpercetakan/video/7610438222266649874" data-video-id="7610438222266649874" style="max-width:100%;min-width:280px;width:100%;"><section></section></blockquote>
+            </div>
+            <div class="vc-info">
+              <span class="vc-platform tiktok">TIKTOK</span>
+              <h4>Pikachu EX 200 HP - 230/182 SAR — 3D Glossy</h4>
+              <a class="vc-link" href="https://www.tiktok.com/@desainerpercetakan/video/7610438222266649874" target="_blank" rel="noopener">Lihat di TikTok
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="video-card">
+            <div class="vc-embed">
+              <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@desainerpercetakan/video/7584063367212584199" data-video-id="7584063367212584199" style="max-width:100%;min-width:280px;width:100%;"><section></section></blockquote>
+            </div>
+            <div class="vc-info">
+              <span class="vc-platform tiktok">TIKTOK</span>
+              <h4>Duck Japan Glossy Emoney</h4>
+              <a class="vc-link" href="https://www.tiktok.com/@desainerpercetakan/video/7584063367212584199" target="_blank" rel="noopener">Lihat di TikTok
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="video-card">
+            <div class="vc-embed">
+              <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@desainerpercetakan/video/7586336090873679111" data-video-id="7586336090873679111" style="max-width:100%;min-width:280px;width:100%;"><section></section></blockquote>
+            </div>
+            <div class="vc-info">
+              <span class="vc-platform tiktok">TIKTOK</span>
+              <h4>Pikachu EX 3D Glossy</h4>
+              <a class="vc-link" href="https://www.tiktok.com/@desainerpercetakan/video/7586336090873679111" target="_blank" rel="noopener">Lihat di TikTok
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="video-card">
+            <div class="vc-embed">
+              <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@desainerpercetakan/video/7581353943486434568" data-video-id="7581353943486434568" style="max-width:100%;min-width:280px;width:100%;"><section></section></blockquote>
+            </div>
+            <div class="vc-info">
+              <span class="vc-platform tiktok">TIKTOK</span>
+              <h4>Pokemon Illustrator 3D Glossy</h4>
+              <a class="vc-link" href="https://www.tiktok.com/@desainerpercetakan/video/7581353943486434568" target="_blank" rel="noopener">Lihat di TikTok
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="video-card">
+            <div class="vc-embed">
+              <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@desainerpercetakan/video/7574354950990466312" data-video-id="7574354950990466312" style="max-width:100%;min-width:280px;width:100%;"><section></section></blockquote>
+            </div>
+            <div class="vc-info">
+              <span class="vc-platform tiktok">TIKTOK</span>
+              <h4>Pokemon Illustrator 3D Glossy</h4>
+              <a class="vc-link" href="https://www.tiktok.com/@desainerpercetakan/video/7574354950990466312" target="_blank" rel="noopener">Lihat di TikTok
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="video-card">
+            <div class="vc-embed">
+              <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@desainerpercetakan/video/7532897143581920530" data-video-id="7532897143581920530" style="max-width:100%;min-width:280px;width:100%;"><section></section></blockquote>
+            </div>
+            <div class="vc-info">
+              <span class="vc-platform tiktok">TIKTOK</span>
+              <h4>Charizard EX 180 — Immersive Rare — 3D Doff</h4>
+              <a class="vc-link" href="https://www.tiktok.com/@desainerpercetakan/video/7532897143581920530" target="_blank" rel="noopener">Lihat di TikTok
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- PERBEDAAN FINISHING -->
+      <div class="cat-block" data-reveal>
+        <div class="cat-head"><h3>Perbedaan Finishing<span class="count">3 video</span></h3></div>
+        <div class="video-grid">
+
+          <div class="video-card">
+            <div class="vc-embed">
+              <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DBJFPRqtIFq/" data-instgrm-version="14" style="margin:0;max-width:540px;min-width:280px;width:100%;"></blockquote>
+            </div>
+            <div class="vc-info">
+              <span class="vc-platform ig">INSTAGRAM</span>
+              <h4>Perbedaan Doff, Glossy &amp; CMYK</h4>
+              <a class="vc-link" href="https://www.instagram.com/p/DBJFPRqtIFq/" target="_blank" rel="noopener">Lihat di Instagram
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="video-card">
+            <div class="vc-embed">
+              <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DaxOJmHDTnE/" data-instgrm-version="14" style="margin:0;max-width:540px;min-width:280px;width:100%;"></blockquote>
+            </div>
+            <div class="vc-info">
+              <span class="vc-platform ig">INSTAGRAM</span>
+              <h4>Perbedaan Doff &amp; Glossy Pokemon</h4>
+              <a class="vc-link" href="https://www.instagram.com/p/DaxOJmHDTnE/" target="_blank" rel="noopener">Lihat di Instagram
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="video-card">
+            <div class="vc-embed">
+              <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@desainerpercetakan/video/7662355240913472786" data-video-id="7662355240913472786" style="max-width:100%;min-width:280px;width:100%;"><section></section></blockquote>
+            </div>
+            <div class="vc-info">
+              <span class="vc-platform tiktok">TIKTOK</span>
+              <h4>Perbedaan 3D Doff dan Glossy</h4>
+              <a class="vc-link" href="https://www.tiktok.com/@desainerpercetakan/video/7662355240913472786" target="_blank" rel="noopener">Lihat di TikTok
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- TIMNAS -->
+      <div class="cat-block" data-reveal>
+        <div class="cat-head"><h3>Timnas<span class="count">1 video</span></h3></div>
+        <div class="video-grid">
+
+          <div class="video-card">
+            <div class="vc-embed">
+              <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@desainerpercetakan/video/7668475814287101191" data-video-id="7668475814287101191" style="max-width:100%;min-width:280px;width:100%;"><section></section></blockquote>
+            </div>
+            <div class="vc-info">
+              <span class="vc-platform tiktok">TIKTOK</span>
+              <h4>Timnas — Emoney Doff Seperti 3D Image</h4>
+              <a class="vc-link" href="https://www.tiktok.com/@desainerpercetakan/video/7668475814287101191" target="_blank" rel="noopener">Lihat di TikTok
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- LOTSO & CAPYBARA -->
+      <div class="cat-block" data-reveal>
+        <div class="cat-head"><h3>Lotso &amp; Capybara<span class="count">2 video</span></h3></div>
+        <div class="video-grid">
+
+          <div class="video-card">
+            <div class="vc-embed">
+              <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@desainerpercetakan/video/7656791171405974792" data-video-id="7656791171405974792" style="max-width:100%;min-width:280px;width:100%;"><section></section></blockquote>
+            </div>
+            <div class="vc-info">
+              <span class="vc-platform tiktok">TIKTOK</span>
+              <h4>Lotso</h4>
+              <a class="vc-link" href="https://www.tiktok.com/@desainerpercetakan/video/7656791171405974792" target="_blank" rel="noopener">Lihat di TikTok
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="video-card">
+            <div class="vc-embed">
+              <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@desainerpercetakan/video/7628426017924861202" data-video-id="7628426017924861202" style="max-width:100%;min-width:280px;width:100%;"><section></section></blockquote>
+            </div>
+            <div class="vc-info">
+              <span class="vc-platform tiktok">TIKTOK</span>
+              <h4>Capybara Emoney</h4>
+              <a class="vc-link" href="https://www.tiktok.com/@desainerpercetakan/video/7628426017924861202" target="_blank" rel="noopener">Lihat di TikTok
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- MERCH LAINNYA -->
+      <div class="cat-block" data-reveal>
+        <div class="cat-head"><h3>Merch Lainnya<span class="count">1 video</span></h3></div>
+        <div class="video-grid">
+
+          <div class="video-card">
+            <div class="vc-embed">
+              <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@desainerpercetakan/video/7580614706625400071" data-video-id="7580614706625400071" style="max-width:100%;min-width:280px;width:100%;"><section></section></blockquote>
+            </div>
+            <div class="vc-info">
+              <span class="vc-platform tiktok">TIKTOK</span>
+              <h4>Botol Plastik Bening</h4>
+              <a class="vc-link" href="https://www.tiktok.com/@desainerpercetakan/video/7580614706625400071" target="_blank" rel="noopener">Lihat di TikTok
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap foot-inner">
+    <div class="logo">
+       <div class="logo-mark">
+      <img src="images/favfrogress.ico" alt="Frogress Shop">
+    </div>
+      <a href="index.html">Frogress Shop</a>
+  </div>
+    <div class="foot-links">
+    <a href="produk.html">Produk</a>
+    <a href="index.html#Finishing">Finishing</a>
+    <a href="index.html#Merch Lainnya">Merch Lainnya</a>
+    <a href="ulasan.html">Ulasan</a>
+    <a href="index.html#harga">Harga</a>
+    </div>
+    <div class="foot-note">© 2026 FROGRESS SHOP — EMONEY CUSTOM | PRINT UV</div>
+  </div>
+</footer>
+
+<!-- WHATSAPP FLOATING BUTTON -->
+<a
+  href="https://wa.me/628561361446?text=saya%20dari%20website%20ingin%20pesan%20atau%20menanyakan%20produk%20custom%20emoney%20kak.."
+  class="wa-float"
+  target="_blank"
+  rel="noopener"
+  aria-label="Pesan via WhatsApp"
+>
+  <svg viewBox="0 0 32 32" fill="currentColor" width="30" height="30"><path d="M16.001 3C9.107 3 3.5 8.607 3.5 15.5c0 2.42.69 4.68 1.885 6.6L3 29l7.09-2.34a12.44 12.44 0 0 0 5.91 1.5h.005C22.9 28.16 28.5 22.55 28.5 15.66 28.5 8.77 22.9 3 16.001 3zm0 22.7h-.004a10.4 10.4 0 0 1-5.3-1.45l-.38-.226-4.207 1.388 1.412-4.1-.248-.42a10.28 10.28 0 0 1-1.573-5.394c0-5.7 4.64-10.34 10.353-10.34 2.766 0 5.365 1.078 7.32 3.036a10.28 10.28 0 0 1 3.033 7.316c0 5.7-4.64 10.19-10.406 10.19zm5.68-7.71c-.31-.156-1.84-.908-2.126-1.012-.285-.104-.492-.156-.7.156-.207.312-.802 1.012-.984 1.22-.181.208-.363.234-.673.078-.31-.156-1.31-.483-2.496-1.54-.923-.823-1.546-1.84-1.727-2.152-.181-.312-.02-.48.137-.636.14-.14.31-.364.466-.546.155-.182.207-.312.31-.52.104-.208.052-.39-.026-.546-.078-.156-.7-1.688-.96-2.312-.253-.61-.51-.528-.7-.538l-.596-.01c-.207 0-.545.078-.83.39-.285.312-1.09 1.066-1.09 2.598 0 1.532 1.116 3.012 1.271 3.22.155.208 2.196 3.355 5.322 4.706.744.322 1.324.514 1.777.658.746.238 1.425.204 1.962.124.599-.09 1.84-.752 2.1-1.478.26-.726.26-1.348.182-1.478-.078-.13-.285-.208-.596-.364z"/></svg>
+</a>
+
+<script>
+  // reveal on scroll
+  const els = document.querySelectorAll('[data-reveal]');
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, {threshold:.1});
+  els.forEach(el=>io.observe(el));
+
+  const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+  const navLinks = document.getElementById('navLinks');
+  mobileMenuBtn.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+  });
+</script>
+
+<!-- Official embed scripts: render TikTok & Instagram players inline -->
+<script async src="https://www.tiktok.com/embed.js"></script>
+<script async src="https://www.instagram.com/embed.js"></script>
+
+</body>
+</html>
